@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">PropertyCross</string>
+    <string name="option_rent">To Rent</string>
+    <string name="option_buy">To Buy</string>
+    <string name="location_icon">Search using my current location</string>
+    <string name="location_hint">City/Postal Code/Address</string>
+    <string name="search_hint_pulse">Press</string>
+    <string name="search_hint_sentence">to search within you current location</string>
+    <string name="previous_results_title">Recent Searches</string>
 </resources>
