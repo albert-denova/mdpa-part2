@@ -13,6 +13,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -42,13 +43,16 @@ public class MainActivity extends AppCompatActivity implements TextView.OnEditor
     public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
         boolean handled = false;
         if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-            EditText editText = (EditText) findViewById(R.id.locationSearchText);
-            String storedText = editText.getText().toString();
-
-            Log.d(this.getLocalClassName(), "Search Action: " + storedText);
             handled = true;
 
+            EditText editText = (EditText) findViewById(R.id.locationSearchText);
+            String storedText = editText.getText().toString();
             hideKeyboard(editText);
+
+            // TODO: Perform search
+            Log.d(this.getLocalClassName(), "Search Action: " + storedText);
+
+            createToastNoResultsFound();
         }
         return handled;
     }
@@ -81,6 +85,15 @@ public class MainActivity extends AppCompatActivity implements TextView.OnEditor
         view.clearFocus();
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+
+    private void createToastNoResultsFound() {
+        Context context = getApplicationContext();
+        CharSequence text = "No results found";
+        int duration = Toast.LENGTH_LONG;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
     }
 
 }
