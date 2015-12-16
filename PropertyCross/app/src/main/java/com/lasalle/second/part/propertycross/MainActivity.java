@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         final String[] fromMapKey = new String[] {TEXT1, TEXT2};
         final int[] toLayoutId = new int[] {android.R.id.text1, android.R.id.text2};
 
-        final List<Map<String, String>> list = new ArrayList<Map<String, String>>();
+        final List<Map<String, String>> list = new ArrayList<>();
 
         AddListItem(list, "Alicante, en venta", "36 resultados");
         AddListItem(list, "Alicante 03009, en venta", "9 resultados");
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void AddListItem(List<Map<String, String>> list, String itemTitle, String itemSubtitle) {
-        final Map<String, String> itemMap = new HashMap<String, String>();
+        final Map<String, String> itemMap = new HashMap<>();
         itemMap.put(TEXT1, itemTitle);
         itemMap.put(TEXT2, itemSubtitle);
 

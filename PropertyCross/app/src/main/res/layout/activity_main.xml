@@ -76,7 +76,9 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/locationSearchText"
                     android:layout_weight="1"
-                    android:hint="@string/location_hint" />
+                    android:hint="@string/location_hint"
+                    android:imeOptions="actionSearch"
+                    android:singleLine="true" />
             </LinearLayout>
 
             <LinearLayout
