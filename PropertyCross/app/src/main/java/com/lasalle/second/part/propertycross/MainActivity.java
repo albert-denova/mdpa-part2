@@ -42,10 +42,13 @@ public class MainActivity extends AppCompatActivity implements TextView.OnEditor
     public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
         boolean handled = false;
         if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-            Log.d(this.getLocalClassName(), "Search Action!");
+            EditText editText = (EditText) findViewById(R.id.locationSearchText);
+            String storedText = editText.getText().toString();
+
+            Log.d(this.getLocalClassName(), "Search Action: " + storedText);
             handled = true;
 
-            hideKeyboard(findViewById(R.id.locationSearchText));
+            hideKeyboard(editText);
         }
         return handled;
     }
