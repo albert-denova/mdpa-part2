@@ -19,6 +19,7 @@ import com.lasalle.second.part.week1.R;
 import com.lasalle.second.part.week1.model.Property;
 import com.lasalle.second.part.week1.services.ApplicationServiceFactory;
 
+import java.security.Key;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -47,7 +48,10 @@ public class MainActivity extends AppCompatActivity implements TextView.OnEditor
     public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
         boolean handled = false;
 
-        if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+        final boolean isEnterKey = (event.getKeyCode() == KeyEvent.KEYCODE_ENTER) &&
+                (event.getAction() == KeyEvent.ACTION_DOWN);
+
+        if (actionId == EditorInfo.IME_ACTION_SEARCH || isEnterKey) {
             handled = true;
 
             EditText editText = (EditText) findViewById(R.id.locationSearchText);
