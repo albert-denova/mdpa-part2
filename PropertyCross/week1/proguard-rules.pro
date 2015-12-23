@@ -16,4 +16,4 @@
 #   public *;
 #}
 
--keep class com.lasalle.second.part.week1.MainActivity {public *;}
+-keep class com.lasalle.second.part.week1.activities.MainActivity {public *;}

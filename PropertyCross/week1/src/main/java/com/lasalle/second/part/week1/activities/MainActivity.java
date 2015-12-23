@@ -1,4 +1,4 @@
-package com.lasalle.second.part.week1;
+package com.lasalle.second.part.week1.activities;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -14,6 +14,10 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.lasalle.second.part.week1.R;
+import com.lasalle.second.part.week1.model.Property;
+import com.lasalle.second.part.week1.services.ApplicationServiceFactory;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -42,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements TextView.OnEditor
     @Override
     public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
         boolean handled = false;
+
         if (actionId == EditorInfo.IME_ACTION_SEARCH) {
             handled = true;
 
@@ -49,10 +54,22 @@ public class MainActivity extends AppCompatActivity implements TextView.OnEditor
             String storedText = editText.getText().toString();
             hideKeyboard(editText);
 
-            // TODO: Perform search
             Log.d(this.getLocalClassName(), "Search Action: " + storedText);
+            List<Property> propertyList = ApplicationServiceFactory.getInstance(this).getPropertyService().searchProperties(storedText);
 
-            createToastNoResultsFound();
+            if(propertyList.isEmpty())
+            {
+                createToastNoResultsFound();
+            }
+            else
+            {
+                Context context = getApplicationContext();
+                CharSequence text = "YESS results found";
+                int duration = Toast.LENGTH_LONG;
+
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+            }
         }
         return handled;
     }
