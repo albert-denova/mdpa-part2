@@ -1,6 +1,7 @@
 package com.lasalle.second.part.week1.activities;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -25,6 +26,8 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.xml.transform.Result;
 
 public class MainActivity extends AppCompatActivity implements TextView.OnEditorActionListener {
 
@@ -67,12 +70,8 @@ public class MainActivity extends AppCompatActivity implements TextView.OnEditor
             }
             else
             {
-                Context context = getApplicationContext();
-                CharSequence text = "YESS results found";
-                int duration = Toast.LENGTH_LONG;
-
-                Toast toast = Toast.makeText(context, text, duration);
-                toast.show();
+                Intent intent = new Intent(this, ResultsContainerActivity.class);
+                startActivity(intent);
             }
         }
         return handled;

@@ -7,4 +7,10 @@
     <string name="search_hint_pulse">Press</string>
     <string name="search_hint_sentence">to search within you current location</string>
     <string name="previous_results_title">Recent Searches</string>
+    <string name="results_tab_all">All</string>
+    <string name="results_tab_rent">To Rent</string>
+    <string name="results_tab_sell">For Sale</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
