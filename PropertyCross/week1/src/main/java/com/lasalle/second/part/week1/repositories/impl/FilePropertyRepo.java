@@ -32,7 +32,22 @@ public class FilePropertyRepo implements PropertyRepo {
 
     @Override
     public List<Property> searchProperties(PropertySearch search) {
-        String propertiesString = readStringFromFile(R.raw.rent_property_list);
+        String propertiesString = new String("");
+
+        if(search.isSell() && search.isRent())
+        {
+            propertiesString = readStringFromFile(R.raw.rent_property_list_all);
+        }
+        else if(search.isRent())
+        {
+            propertiesString = readStringFromFile(R.raw.rent_property_list_rent);
+        }
+        else if(search.isSell())
+        {
+            propertiesString = readStringFromFile(R.raw.rent_property_list_sell);
+        }
+
+
         List<Property> propertyList = readPropertiesFromJson(propertiesString);
         return propertyList;
     }
