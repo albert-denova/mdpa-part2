@@ -13,16 +13,16 @@
         <item name="android:textSize">@dimen/previous_results_search_title</item>
     </style>
 
-    <style name="SearchTabLayout" parent="Widget.Design.TabLayout">
+    <style name="searchTabLayout" parent="Widget.Design.TabLayout">
         <item name="tabIndicatorColor">@color/colorPrimaryDark</item>
         <item name="tabIndicatorHeight">5dp</item>
         <item name="tabBackground">@color/colorPrimary</item>
         <item name="tabSelectedTextColor">#FFF</item>
-        <item name="tabTextAppearance">@style/SearchTabLayoutText</item>
+        <item name="tabTextAppearance">@style/searchTabLayoutText</item>
     </style>
 
-    <style name="SearchTabLayoutText" parent="TextAppearance.Design.Tab">
-        <item name="android:textColor">#FFF</item>
+    <style name="searchTabLayoutText" parent="TextAppearance.Design.Tab">
+        <item name="android:textColor">@color/searchTabLayoutTextColor</item>
         <item name="android:textAllCaps">true</item>
     </style>
 

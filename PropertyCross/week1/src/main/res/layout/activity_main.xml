@@ -19,7 +19,8 @@
         android:id="@+id/searchLayoutContainer"
         android:layout_weight="1"
         android:paddingLeft="16dp"
-        android:paddingRight="16dp">
+        android:paddingRight="16dp"
+        android:background="@color/colorBackground">
 
         <LinearLayout
             android:orientation="horizontal"
