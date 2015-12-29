@@ -83,6 +83,7 @@ public class SearchResultAdapter extends BaseAdapter {
         subtitleTextView.setText(
                 String.format(containerActivity.getString(R.string.results_subtitle_text_sale),
                         objectList.toArray()));
+
     }
 
     protected void setViewPrice(View rowView, Property property) {
