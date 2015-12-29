@@ -13,6 +13,7 @@ import android.widget.SimpleAdapter;
 
 import com.lasalle.second.part.week1.R;
 import com.lasalle.second.part.week1.adapters.SearchResultAdapter;
+import com.lasalle.second.part.week1.model.Property;
 import com.lasalle.second.part.week1.model.PropertySearch;
 import com.lasalle.second.part.week1.services.ApplicationServiceFactory;
 import com.lasalle.second.part.week1.services.PropertyService;
@@ -48,10 +49,10 @@ public class SearchResultListFragment extends Fragment {
         View fragmentView = inflater.inflate(R.layout.fragment_search_result_list, container, false);
 
         PropertyService propertyService = ApplicationServiceFactory.getInstance(getContext()).getPropertyService();
-        propertyService.searchProperties(currentSearch);
+        List<Property> searchResults = propertyService.searchProperties(currentSearch);
 
         listView = (ListView) fragmentView.findViewById(R.id.fragment_search_list);
-        listView.setAdapter(new SearchResultAdapter(getActivity(), currentSearch.getResults()));
+        listView.setAdapter(new SearchResultAdapter(getActivity(), searchResults));
 
         return fragmentView;
     }
