@@ -11,13 +11,9 @@ import android.widget.TextView;
 
 import com.lasalle.second.part.week1.R;
 import com.lasalle.second.part.week1.model.Property;
-import com.lasalle.second.part.week1.model.PropertySearch;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * Created by albert.denova on 28/12/15.
