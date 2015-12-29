@@ -1,27 +1,38 @@
 package com.lasalle.second.part.week1.services;
 
 import com.lasalle.second.part.week1.model.Property;
+import com.lasalle.second.part.week1.model.PropertySearch;
 import com.lasalle.second.part.week1.repositories.PropertyRepo;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class PropertyService {
 
     private PropertyRepo propertyRepo;
-    private List<Property> lastSearchResult;
+    private PropertySearch lastSearch;
 
     public PropertyService(PropertyRepo propertyRepo) {
         this.propertyRepo = propertyRepo;
-        this.lastSearchResult = new ArrayList<>();
+        this.lastSearch = new PropertySearch();
     }
 
     public List<Property> searchProperties(String searchQuery) {
-        lastSearchResult = this.propertyRepo.searchProperties(searchQuery);
-        return lastSearchResult;
+        PropertySearch currentSearch = new PropertySearch(searchQuery, true, true);
+        return searchProperties(currentSearch);
     }
 
-    public List<Property> getLastSearchResult() {
-        return lastSearchResult;
+    public List<Property> searchProperties(PropertySearch currentSearch)
+    {
+        if(!lastSearch.hasSameQuery(currentSearch))
+        {
+            currentSearch.setResults(this.propertyRepo.searchProperties(currentSearch));
+            lastSearch = currentSearch;
+        }
+
+        return lastSearch.getResults();
+    }
+
+    public PropertySearch getLastSearch() {
+        return lastSearch;
     }
 }

@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.lasalle.second.part.week1.R;
 import com.lasalle.second.part.week1.model.Property;
 import com.lasalle.second.part.week1.services.ApplicationServiceFactory;
+import com.lasalle.second.part.week1.services.PropertyService;
 
 import java.security.Key;
 import java.util.ArrayList;
@@ -62,7 +63,9 @@ public class MainActivity extends AppCompatActivity implements TextView.OnEditor
             hideKeyboard(editText);
 
             Log.d(this.getLocalClassName(), "Search Action: " + storedText);
-            List<Property> propertyList = ApplicationServiceFactory.getInstance(this).getPropertyService().searchProperties(storedText);
+
+            PropertyService propertyService = ApplicationServiceFactory.getInstance(this).getPropertyService();
+            List<Property> propertyList = propertyService.searchProperties(storedText);
 
             if(propertyList.isEmpty())
             {

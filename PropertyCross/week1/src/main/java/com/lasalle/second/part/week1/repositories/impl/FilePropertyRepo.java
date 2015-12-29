@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.lasalle.second.part.week1.R;
 import com.lasalle.second.part.week1.model.Property;
+import com.lasalle.second.part.week1.model.PropertySearch;
 import com.lasalle.second.part.week1.repositories.PropertyRepo;
 import com.lasalle.second.part.week1.util.JSonPropertyBuilder;
 
@@ -30,7 +31,7 @@ public class FilePropertyRepo implements PropertyRepo {
     }
 
     @Override
-    public List<Property> searchProperties(String searchQuery) {
+    public List<Property> searchProperties(PropertySearch search) {
         String propertiesString = readStringFromFile(R.raw.rent_property_list);
         List<Property> propertyList = readPropertiesFromJson(propertiesString);
         return propertyList;

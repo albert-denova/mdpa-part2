@@ -10,6 +10,9 @@
     <string name="results_tab_all">All</string>
     <string name="results_tab_rent">To Rent</string>
     <string name="results_tab_sell">For Sale</string>
+    <string name="results_subtitle_text_sale">%.0fm2 for sale</string>
+    <string name="results_subtitle_text_rent">%.0fm2 to rent</string>
+    <string name="results_price">%.0€</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
