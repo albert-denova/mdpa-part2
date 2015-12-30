@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -46,6 +47,10 @@ public class MainActivity extends AppCompatActivity implements TextView.OnEditor
 
         EditText editText = (EditText) findViewById(R.id.locationSearchText);
         editText.setOnEditorActionListener(this);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.mainActivityToolbar);
+        toolbar.setTitle(getString(R.string.main_activity_title));
+        setSupportActionBar(toolbar);
     }
 
     @Override
