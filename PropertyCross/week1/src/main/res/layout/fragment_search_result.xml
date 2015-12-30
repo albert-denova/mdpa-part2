@@ -14,6 +14,16 @@
         android:layout_height="match_parent"
         android:layout_gravity="left|top">
 
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/searchResultToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            android:elevation="4dp"
+            android:theme="@style/toolBarStyle"
+            android:popupTheme="@style/toolBarStyle">
+        </android.support.v7.widget.Toolbar>
+
         <android.support.design.widget.TabLayout
             android:id="@+id/search_results_frag_tabs"
             android:layout_width="match_parent"

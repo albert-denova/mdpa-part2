@@ -7,7 +7,11 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -29,6 +33,16 @@ public class SearchResultFragment extends Fragment {
                              Bundle savedInstanceState) {
         View searchResultview = inflater.inflate(R.layout.fragment_search_result, container, false);
 
+        setupTabOptions(searchResultview);
+
+        Toolbar toolbar = (Toolbar) searchResultview.findViewById(R.id.searchResultToolbar);
+        AppCompatActivity compatActivity = (AppCompatActivity) getActivity();
+        compatActivity.setSupportActionBar(toolbar);
+
+        return searchResultview;
+    }
+
+    protected void setupTabOptions(View searchResultview) {
         TabLayout tabLayout = (TabLayout) searchResultview.findViewById(R.id.search_results_frag_tabs);
         ViewPager viewPager = (ViewPager) searchResultview.findViewById(R.id.search_results_frag_content);
 
@@ -46,8 +60,6 @@ public class SearchResultFragment extends Fragment {
 
         viewPager.setAdapter(new SectionTabAdapter(getChildFragmentManager(), entryArrayList));
         tabLayout.setupWithViewPager(viewPager);
-
-        return searchResultview;
     }
 
     private SectionTabAdapter.Entry createTabEntry(PropertySearch baseSearch, boolean toRent, boolean toSell, String name)
@@ -65,4 +77,8 @@ public class SearchResultFragment extends Fragment {
         return new SectionTabAdapter.Entry(fragment, name);
     }
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+    }
 }

@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.Menu;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
@@ -51,6 +52,13 @@ public class MainActivity extends AppCompatActivity implements TextView.OnEditor
         Toolbar toolbar = (Toolbar) findViewById(R.id.mainActivityToolbar);
         toolbar.setTitle(getString(R.string.main_activity_title));
         setSupportActionBar(toolbar);
+
+        /* TEMP */
+        PropertyService propertyService = ApplicationServiceFactory.getInstance(this).getPropertyService();
+        propertyService.searchProperties("hh");
+
+        Intent intent = new Intent(this, ResultsContainerActivity.class);
+        startActivity(intent);
     }
 
     @Override
@@ -85,7 +93,14 @@ public class MainActivity extends AppCompatActivity implements TextView.OnEditor
         return handled;
     }
 
-    private ListAdapter createListAdapter() {
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        //getMenuInflater().inflate(R.menu.main_activity_menu, menu);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    protected ListAdapter createListAdapter() {
         final String[] fromMapKey = new String[] {TEXT1, TEXT2};
         final int[] toLayoutId = new int[] {android.R.id.text1, android.R.id.text2};
 
@@ -101,7 +116,7 @@ public class MainActivity extends AppCompatActivity implements TextView.OnEditor
         return new SimpleAdapter(this, list, android.R.layout.simple_list_item_2, fromMapKey, toLayoutId);
     }
 
-    private void addListItem(List<Map<String, String>> list, String itemTitle, String itemSubtitle) {
+    protected void addListItem(List<Map<String, String>> list, String itemTitle, String itemSubtitle) {
         final Map<String, String> itemMap = new HashMap<>();
         itemMap.put(TEXT1, itemTitle);
         itemMap.put(TEXT2, itemSubtitle);
@@ -109,13 +124,13 @@ public class MainActivity extends AppCompatActivity implements TextView.OnEditor
         list.add(Collections.unmodifiableMap(itemMap));
     }
 
-    private void hideKeyboard(View view) {
+    protected void hideKeyboard(View view) {
         view.clearFocus();
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
-    private void createToastNoResultsFound() {
+    protected void createToastNoResultsFound() {
         Context context = getApplicationContext();
         CharSequence text = "No results found";
         int duration = Toast.LENGTH_LONG;
