@@ -54,11 +54,12 @@ public class MainActivity extends AppCompatActivity implements TextView.OnEditor
         setSupportActionBar(toolbar);
 
         /* TEMP */
+        /*
         PropertyService propertyService = ApplicationServiceFactory.getInstance(this).getPropertyService();
         propertyService.searchProperties("hh");
 
         Intent intent = new Intent(this, ResultsContainerActivity.class);
-        startActivity(intent);
+        startActivity(intent);*/
     }
 
     @Override
