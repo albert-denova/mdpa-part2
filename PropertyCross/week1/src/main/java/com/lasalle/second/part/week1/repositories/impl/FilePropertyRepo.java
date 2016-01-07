@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class FilePropertyRepo implements PropertyRepo {
@@ -49,6 +50,7 @@ public class FilePropertyRepo implements PropertyRepo {
 
 
         List<Property> propertyList = readPropertiesFromJson(propertiesString);
+        sortProperties(propertyList, search.getSortCriteria());
         return propertyList;
     }
 
@@ -99,5 +101,36 @@ public class FilePropertyRepo implements PropertyRepo {
         }
 
         return propertyList;
+    }
+
+    protected void sortProperties(List<Property> propertyList, PropertySearch.SortCriteria sortCriteria) {
+        switch(sortCriteria) {
+            case DISTANCE: {
+                // TODO implement filter by distance
+                Collections.shuffle(propertyList);
+                break;
+            }
+            case DISTANCE_INVERSE: {
+                //TODO implement filter by distance
+                Collections.shuffle(propertyList);
+                break;
+            }
+            case FOOTAGE: {
+                Collections.sort(propertyList, new Property.FootageComparator(false));
+                break;
+            }
+            case FOOTAGE_INVERSE: {
+                Collections.sort(propertyList, new Property.FootageComparator(true));
+                break;
+            }
+            case PRICE: {
+                Collections.sort(propertyList, new Property.PriceComparator(false));
+                break;
+            }
+            case PRICE_INVERSE: {
+                Collections.sort(propertyList, new Property.PriceComparator(true));
+                break;
+            }
+        }
     }
 }

@@ -1,6 +1,5 @@
 package com.lasalle.second.part.week1.fragments;
 
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcel;
@@ -28,9 +27,11 @@ import java.util.ArrayList;
 public class SearchResultFragment extends Fragment {
 
     private SectionTabAdapter sectionTabAdapter;
+    private int lastSortCriteria;
 
     public SearchResultFragment() {
         sectionTabAdapter = null;
+        lastSortCriteria = -1;
     }
 
 
@@ -57,18 +58,27 @@ public class SearchResultFragment extends Fragment {
 
         PropertySearch.SortCriteria sortCriteria = PropertySearch.SortCriteria.DEFAULT;
         boolean changedSort = false;
+        boolean sameSortPressed = (lastSortCriteria == itemId);
         if(itemId == R.id.search_option_sort_distance) {
             changedSort = true;
-            sortCriteria = PropertySearch.SortCriteria.DISTANCE;
+            sortCriteria = sameSortPressed ? PropertySearch.SortCriteria.DISTANCE_INVERSE :
+                    PropertySearch.SortCriteria.DISTANCE;
         }
         else if(itemId == R.id.search_option_sort_price) {
             changedSort = true;
-            sortCriteria = PropertySearch.SortCriteria.PRICE;
+            sortCriteria = sameSortPressed ? PropertySearch.SortCriteria.PRICE_INVERSE :
+                    PropertySearch.SortCriteria.PRICE;
         }
         else if(itemId == R.id.search_option_sort_footage) {
             changedSort = true;
-            sortCriteria = PropertySearch.SortCriteria.FOOTAGE;
+            sortCriteria = sameSortPressed ? PropertySearch.SortCriteria.FOOTAGE_INVERSE :
+                    PropertySearch.SortCriteria.FOOTAGE;
         }
+
+        // We will just store the itemId if the sort button was not the same, that way we allow
+        // for one search or another without over-complicating things. It's not the best solution but
+        // it works.
+        lastSortCriteria = sameSortPressed ? -1 : itemId;
 
         if(changedSort && sectionTabAdapter != null) {
             //sectionTabAdapter.sort(sortCriteria);

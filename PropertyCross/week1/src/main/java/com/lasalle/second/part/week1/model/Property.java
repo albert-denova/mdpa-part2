@@ -137,16 +137,39 @@ public class Property {
     }
 
     public static class PriceComparator implements Comparator<Property> {
+        private boolean inverseOrder;
+
+        public PriceComparator(boolean inverseOrder) {
+            this.inverseOrder = inverseOrder;
+        }
+
         @Override
         public int compare(Property lhs, Property rhs) {
-            return new Float(lhs.getPrice() - rhs.getPrice()).intValue();
+            if(inverseOrder) {
+                return new Float(rhs.getPrice() - lhs.getPrice()).intValue();
+            }
+            else {
+                return new Float(lhs.getPrice() - rhs.getPrice()).intValue();
+            }
         }
     }
 
     public static class FootageComparator implements Comparator<Property> {
+        private boolean inverseOrder;
+
+        public FootageComparator(boolean inverseOrder) {
+            this.inverseOrder = inverseOrder;
+        }
+
         @Override
         public int compare(Property lhs, Property rhs) {
-            return new Float(lhs.getSquareFootage() - rhs.getSquareFootage()).intValue();
+            if(inverseOrder) {
+                return new Float(rhs.getSquareFootage() - lhs.getSquareFootage()).intValue();
+            }
+            else {
+                return new Float(lhs.getSquareFootage() - rhs.getSquareFootage()).intValue();
+            }
+
         }
     }
 }

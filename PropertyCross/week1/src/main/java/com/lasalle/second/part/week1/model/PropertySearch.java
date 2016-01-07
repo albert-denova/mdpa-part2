@@ -12,7 +12,10 @@ public class PropertySearch {
         DEFAULT,
         PRICE,
         FOOTAGE,
-        DISTANCE
+        DISTANCE,
+        PRICE_INVERSE,
+        FOOTAGE_INVERSE,
+        DISTANCE_INVERSE
     }
 
     private static final String BUNDLE_KEY_QUERY = "query";
