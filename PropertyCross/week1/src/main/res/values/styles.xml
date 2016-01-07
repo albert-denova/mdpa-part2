@@ -10,6 +10,7 @@
 
     <style name="toolBarStyle" parent="ThemeOverlay.AppCompat.ActionBar">
         <item name="android:textColorPrimary">#fff</item>
+        <item name="android:textColorSecondary">#000</item>
     </style>
 
     <style name="previous_results_search_title">

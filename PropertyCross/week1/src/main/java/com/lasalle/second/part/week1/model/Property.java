@@ -2,6 +2,8 @@ package com.lasalle.second.part.week1.model;
 
 import org.json.JSONObject;
 
+import java.util.Comparator;
+
 /**
  * Created by albert.denova on 22/12/15.
  */
@@ -134,5 +136,17 @@ public class Property {
         this.favourite = favourite;
     }
 
+    public static class PriceComparator implements Comparator<Property> {
+        @Override
+        public int compare(Property lhs, Property rhs) {
+            return new Float(lhs.getPrice() - rhs.getPrice()).intValue();
+        }
+    }
 
+    public static class FootageComparator implements Comparator<Property> {
+        @Override
+        public int compare(Property lhs, Property rhs) {
+            return new Float(lhs.getSquareFootage() - rhs.getSquareFootage()).intValue();
+        }
+    }
 }

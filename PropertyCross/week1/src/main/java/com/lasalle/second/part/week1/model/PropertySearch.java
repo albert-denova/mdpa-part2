@@ -3,9 +3,17 @@ package com.lasalle.second.part.week1.model;
 import android.os.Bundle;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class PropertySearch {
+
+    public enum SortCriteria {
+        DEFAULT,
+        PRICE,
+        FOOTAGE,
+        DISTANCE
+    }
 
     private static final String BUNDLE_KEY_QUERY = "query";
     private static final String BUNDLE_KEY_LONGITUDE = "longitude";
@@ -19,9 +27,11 @@ public class PropertySearch {
     private boolean rent;
     private boolean sell;
     private List<Property> results;
+    private SortCriteria sortCriteria;
 
     public PropertySearch() {
         this.results = new ArrayList<>();
+        this.sortCriteria = SortCriteria.DEFAULT;
     }
 
     public PropertySearch(String query, boolean rent, boolean sell) {
@@ -29,6 +39,7 @@ public class PropertySearch {
         this.rent = rent;
         this.sell = sell;
         this.results = new ArrayList<>();
+        this.sortCriteria = SortCriteria.DEFAULT;
     }
 
     public PropertySearch(Float longitude, Float latitude, boolean rent, boolean sell) {
@@ -37,6 +48,7 @@ public class PropertySearch {
         this.rent = rent;
         this.sell = sell;
         this.results = new ArrayList<>();
+        this.sortCriteria = SortCriteria.DEFAULT;
     }
 
     public PropertySearch(Bundle bundle) {
@@ -45,6 +57,7 @@ public class PropertySearch {
         this.longitude = bundle.getFloat(BUNDLE_KEY_LONGITUDE);
         this.rent = bundle.getBoolean(BUNDLE_KEY_RENT);
         this.sell = bundle.getBoolean(BUNDLE_KEY_SELL);
+        this.sortCriteria = SortCriteria.DEFAULT;
     }
 
     public boolean hasSameQuery(PropertySearch search) {
@@ -113,4 +126,14 @@ public class PropertySearch {
     public void setResults(List<Property> results) {
         this.results = results;
     }
+
+    public SortCriteria getSortCriteria() {
+        return sortCriteria;
+    }
+
+    public void setSortCriteria(SortCriteria sortCriteria) {
+        this.sortCriteria = sortCriteria;
+    }
+
+
 }

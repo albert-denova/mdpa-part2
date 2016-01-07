@@ -14,6 +14,9 @@
     <string name="results_subtitle_text_sale">%.0fm2 for sale</string>
     <string name="results_subtitle_text_rent">%.0fm2 to rent</string>
     <string name="results_price">%.0f€</string>
+    <string name="search_option_sort_distance">By distance</string>
+    <string name="search_option_sort_price">By price</string>
+    <string name="search_option_sort_footage">By footage</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

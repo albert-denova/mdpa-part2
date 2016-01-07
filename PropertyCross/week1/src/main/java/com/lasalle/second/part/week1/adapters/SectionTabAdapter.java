@@ -4,7 +4,11 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.lasalle.second.part.week1.model.Property;
+import com.lasalle.second.part.week1.model.PropertySearch;
+
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class SectionTabAdapter extends FragmentPagerAdapter {
 
@@ -31,6 +35,13 @@ public class SectionTabAdapter extends FragmentPagerAdapter {
     public SectionTabAdapter(FragmentManager fm, ArrayList<Entry> entryList) {
         super(fm);
         this.entryList = entryList;
+    }
+
+    public void sort(PropertySearch.SortCriteria sortCriteria) {
+
+
+
+        notifyDataSetChanged();
     }
 
     @Override

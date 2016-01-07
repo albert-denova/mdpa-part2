@@ -59,6 +59,15 @@ public class SearchResultAdapter extends BaseAdapter {
         return rowView;
     }
 
+
+    public List<Property> getPropertiesList() {
+        return propertiesList;
+    }
+
+    public void setPropertiesList(List<Property> propertiesList) {
+        this.propertiesList = propertiesList;
+    }
+
     protected void setViewImage(View rowView) {
         ImageView imageView = (ImageView) rowView.findViewById(R.id.search_result_image);
         if(Math.random() % 2 == 0) {
