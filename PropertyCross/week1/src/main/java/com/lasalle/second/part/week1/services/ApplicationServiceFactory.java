@@ -9,11 +9,13 @@ public class ApplicationServiceFactory {
     protected static ApplicationServiceFactory instance = null;
 
     private PropertyService propertyService;
+    private AuthService authService;
     private Context context;
 
     protected ApplicationServiceFactory(Context context) {
         this.context = context;
         this.propertyService = new PropertyService(new FilePropertyRepo(context));
+        this.authService = new AuthService();
     }
 
     public static ApplicationServiceFactory getInstance(Context context) {
@@ -26,6 +28,11 @@ public class ApplicationServiceFactory {
 
     public PropertyService getPropertyService() {
         return propertyService;
+    }
+
+
+    public AuthService getAuthService() {
+        return authService;
     }
 
 }
