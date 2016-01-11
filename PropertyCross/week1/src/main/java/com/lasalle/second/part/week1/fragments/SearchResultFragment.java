@@ -15,6 +15,7 @@ import com.lasalle.second.part.week1.R;
 import com.lasalle.second.part.week1.adapters.SectionTabAdapter;
 import com.lasalle.second.part.week1.model.PropertySearch;
 import com.lasalle.second.part.week1.services.ApplicationServiceFactory;
+import com.lasalle.second.part.week1.util.PropertySearchBundleBuilder;
 
 import java.util.ArrayList;
 
@@ -57,7 +58,7 @@ public class SearchResultFragment extends Fragment {
         tabSearch.setSell(toSell);
 
         Bundle fragmentArguments = new Bundle();
-        tabSearch.addToBundle(fragmentArguments);
+        PropertySearchBundleBuilder.addToBundle(tabSearch, fragmentArguments);
 
         Fragment fragment = new SearchResultListFragment();
         fragment.setArguments(fragmentArguments);

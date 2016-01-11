@@ -17,6 +17,7 @@ import com.lasalle.second.part.week1.model.Property;
 import com.lasalle.second.part.week1.model.PropertySearch;
 import com.lasalle.second.part.week1.services.ApplicationServiceFactory;
 import com.lasalle.second.part.week1.services.PropertyService;
+import com.lasalle.second.part.week1.util.PropertySearchBundleBuilder;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -39,7 +40,7 @@ public class SearchResultListFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        currentSearch = new PropertySearch(getArguments());
+        currentSearch = PropertySearchBundleBuilder.createFromBundle(getArguments());
     }
 
     @Override

@@ -7,12 +7,6 @@ import java.util.List;
 
 public class PropertySearch {
 
-    private static final String BUNDLE_KEY_QUERY = "query";
-    private static final String BUNDLE_KEY_LONGITUDE = "longitude";
-    private static final String BUNDLE_KEY_LATITUDE = "latitude";
-    private static final String BUNDLE_KEY_RENT = "rent";
-    private static final String BUNDLE_KEY_SELL = "sell";
-
     private String query;
     private float longitude;
     private float latitude;
@@ -39,14 +33,6 @@ public class PropertySearch {
         this.results = new ArrayList<>();
     }
 
-    public PropertySearch(Bundle bundle) {
-        this.query = bundle.getString(BUNDLE_KEY_QUERY);
-        this.latitude = bundle.getFloat(BUNDLE_KEY_LATITUDE);
-        this.longitude = bundle.getFloat(BUNDLE_KEY_LONGITUDE);
-        this.rent = bundle.getBoolean(BUNDLE_KEY_RENT);
-        this.sell = bundle.getBoolean(BUNDLE_KEY_SELL);
-    }
-
     public boolean hasSameQuery(PropertySearch search) {
         final boolean sameQuery = search.getQuery().equals(this.query);
         final boolean sameCoordinates = (search.getLatitude().equals(this.latitude)) &&
@@ -55,15 +41,6 @@ public class PropertySearch {
         final boolean bothAreSell = search.isSell() == this.sell;
 
         return (sameQuery || sameCoordinates) && bothAreRent && bothAreSell;
-    }
-
-    public void addToBundle(Bundle bundle)
-    {
-        bundle.putString(BUNDLE_KEY_QUERY, query);
-        bundle.putFloat(BUNDLE_KEY_LATITUDE, latitude);
-        bundle.putFloat(BUNDLE_KEY_LONGITUDE, longitude);
-        bundle.putBoolean(BUNDLE_KEY_RENT, rent);
-        bundle.putBoolean(BUNDLE_KEY_SELL, sell);
     }
 
     public String getQuery() {
