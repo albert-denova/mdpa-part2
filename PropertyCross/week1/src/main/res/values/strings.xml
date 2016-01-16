@@ -17,6 +17,8 @@
     <string name="search_option_sort_distance">By distance</string>
     <string name="search_option_sort_price">By price</string>
     <string name="search_option_sort_footage">By footage</string>
+    <string name="search_not_found">No results found</string>
+    <string name="search_error">An error occurred, try again later!</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

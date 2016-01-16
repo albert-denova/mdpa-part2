@@ -17,6 +17,7 @@ import android.widget.SimpleAdapter;
 
 import com.lasalle.second.part.week1.R;
 import com.lasalle.second.part.week1.adapters.SearchResultAdapter;
+import com.lasalle.second.part.week1.model.AccessToken;
 import com.lasalle.second.part.week1.model.Property;
 import com.lasalle.second.part.week1.model.PropertySearch;
 import com.lasalle.second.part.week1.services.ApplicationServiceFactory;
@@ -66,8 +67,12 @@ public class SearchResultListFragment extends Fragment {
     }
 
     protected List<Property> doPropertySearch() {
-        PropertyService propertyService = ApplicationServiceFactory.getInstance(getContext()).getPropertyService();
-        return propertyService.searchProperties(currentSearch);
+        ApplicationServiceFactory applicationServiceFactory = ApplicationServiceFactory.getInstance(getContext());
+
+        PropertyService propertyService = applicationServiceFactory.getPropertyService();
+        AccessToken accessToken = applicationServiceFactory.getAuthService().getAccessToken();
+
+        return propertyService.searchProperties(currentSearch, accessToken);
     }
 
     protected void registerOrderIntent() {

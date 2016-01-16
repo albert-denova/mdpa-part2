@@ -34,4 +34,8 @@ public class AuthService {
     public AccessToken getAccessToken() {
         return accessToken;
     }
+
+    public boolean isAccesTokenValid() {
+        return accessToken.isValid();
+    }
 }

@@ -1,5 +1,6 @@
 package com.lasalle.second.part.week1.services;
 
+import com.lasalle.second.part.week1.model.AccessToken;
 import com.lasalle.second.part.week1.model.Property;
 import com.lasalle.second.part.week1.model.PropertySearch;
 import com.lasalle.second.part.week1.repositories.PropertyRepo;
@@ -16,16 +17,16 @@ public class PropertyService {
         this.lastSearch = new PropertySearch();
     }
 
-    public List<Property> searchProperties(String searchQuery) {
+    public List<Property> searchProperties(String searchQuery, AccessToken accessToken) {
         PropertySearch currentSearch = new PropertySearch(searchQuery, true, true);
-        return searchProperties(currentSearch);
+        return searchProperties(currentSearch, accessToken);
     }
 
-    public List<Property> searchProperties(PropertySearch currentSearch)
+    public List<Property> searchProperties(PropertySearch currentSearch, AccessToken accessToken)
     {
         if(!lastSearch.hasSameQuery(currentSearch))
         {
-            currentSearch.setResults(this.propertyRepo.searchProperties(currentSearch));
+            currentSearch.setResults(this.propertyRepo.searchProperties(currentSearch, accessToken));
             lastSearch = currentSearch;
         }
 

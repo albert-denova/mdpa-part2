@@ -19,8 +19,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lasalle.second.part.week1.R;
+import com.lasalle.second.part.week1.model.AccessToken;
 import com.lasalle.second.part.week1.model.Property;
 import com.lasalle.second.part.week1.services.ApplicationServiceFactory;
+import com.lasalle.second.part.week1.services.AuthService;
 import com.lasalle.second.part.week1.services.PropertyService;
 
 import java.security.Key;
@@ -78,8 +80,18 @@ public class MainActivity extends AppCompatActivity implements TextView.OnEditor
 
             Log.d(this.getLocalClassName(), "Search Action: " + storedText);
 
-            PropertyService propertyService = ApplicationServiceFactory.getInstance(this).getPropertyService();
-            List<Property> propertyList = propertyService.searchProperties(storedText);
+            ApplicationServiceFactory applicationServiceFactory = ApplicationServiceFactory.getInstance(this);
+            AuthService authService = applicationServiceFactory.getAuthService();
+
+            if(!authService.isAccesTokenValid())
+            {
+                createToastError();
+                return handled;
+            }
+
+            PropertyService propertyService = applicationServiceFactory.getPropertyService();
+            AccessToken accessToken = authService.getAccessToken();
+            List<Property> propertyList = propertyService.searchProperties(storedText, accessToken);
 
             if(propertyList.isEmpty())
             {
@@ -133,7 +145,16 @@ public class MainActivity extends AppCompatActivity implements TextView.OnEditor
 
     protected void createToastNoResultsFound() {
         Context context = getApplicationContext();
-        CharSequence text = "No results found";
+        CharSequence text = getString(R.string.search_not_found);
+        int duration = Toast.LENGTH_LONG;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+    }
+
+    protected void createToastError() {
+        Context context = getApplicationContext();
+        CharSequence text = getString(R.string.search_error);
         int duration = Toast.LENGTH_LONG;
 
         Toast toast = Toast.makeText(context, text, duration);

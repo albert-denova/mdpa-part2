@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 
 import com.lasalle.second.part.week1.R;
+import com.lasalle.second.part.week1.model.AccessToken;
 import com.lasalle.second.part.week1.model.Property;
 import com.lasalle.second.part.week1.model.PropertySearch;
 import com.lasalle.second.part.week1.repositories.PropertyRepo;
@@ -32,7 +33,7 @@ public class FilePropertyRepo implements PropertyRepo {
     }
 
     @Override
-    public List<Property> searchProperties(PropertySearch search) {
+    public List<Property> searchProperties(PropertySearch search, AccessToken accessToken) {
         String propertiesString = new String("");
 
         if(search.isSell() && search.isRent())
