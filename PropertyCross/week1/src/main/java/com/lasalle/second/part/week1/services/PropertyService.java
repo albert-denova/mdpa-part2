@@ -16,11 +16,6 @@ public class PropertyService {
         this.lastSearch = new PropertySearch();
     }
 
-    public List<Property> searchProperties(String searchQuery) {
-        PropertySearch currentSearch = new PropertySearch(searchQuery, true, true);
-        return searchProperties(currentSearch);
-    }
-
     public List<Property> searchProperties(PropertySearch currentSearch)
     {
         if(!lastSearch.hasSameQuery(currentSearch))
