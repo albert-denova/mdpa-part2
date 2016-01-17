@@ -51,14 +51,13 @@ public class PropertyService {
 
         JsonParseResults parseResults = parseFromJson(propertiesJsonArray);
 
-        final int totalRent = parseResults.getTotalRent();
-        final int totalSell = parseResults.getTotalSell();
-        List<Property> resultList = parseResults.getPropertyList();
-
         if(cacheResults) {
+            final int totalRent = parseResults.getTotalRent();
+            final int totalSell = parseResults.getTotalSell();
             cacheResults(currentSearch, propertiesJsonArray, totalRent, totalSell);
         }
 
+        List<Property> resultList = parseResults.getPropertyList();
         sortProperties(resultList, currentSearch.getSortCriteria());
         currentSearch.setResults(resultList);
         lastSearch = currentSearch;
