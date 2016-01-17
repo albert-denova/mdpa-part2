@@ -83,8 +83,13 @@ public class SearchResultAdapter extends BaseAdapter {
         List<Object> objectList = new ArrayList<>();
         objectList.add(property.getSquareFootage());
 
+        int stringResource = R.string.results_subtitle_text_sale;
+        if(property.isRent()) {
+            stringResource = R.string.results_subtitle_text_rent;
+        }
+
         subtitleTextView.setText(
-                String.format(containerActivity.getString(R.string.results_subtitle_text_sale),
+                String.format(containerActivity.getString(stringResource),
                         objectList.toArray()));
 
     }

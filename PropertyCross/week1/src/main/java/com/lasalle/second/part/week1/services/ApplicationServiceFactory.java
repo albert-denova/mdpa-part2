@@ -2,8 +2,10 @@ package com.lasalle.second.part.week1.services;
 
 import android.content.Context;
 
-import com.lasalle.second.part.week1.repositories.impl.DbSearchHistoryRepo;
-import com.lasalle.second.part.week1.repositories.impl.FilePropertyRepo;
+import com.lasalle.second.part.week1.PropertyCrossApplication;
+import com.lasalle.second.part.week1.repositories.impl.PropertyRepoWebService;
+import com.lasalle.second.part.week1.repositories.impl.SearchHistoryRepoDb;
+import com.lasalle.second.part.week1.repositories.impl.PropertyRepoFile;
 
 public class ApplicationServiceFactory {
 
@@ -13,15 +15,15 @@ public class ApplicationServiceFactory {
     private AuthService authService;
     private Context context;
 
-    protected ApplicationServiceFactory(Context context) {
-        this.context = context;
-        this.propertyService = new PropertyService(new FilePropertyRepo(context), new DbSearchHistoryRepo(context));
+    protected ApplicationServiceFactory() {
+        this.context = PropertyCrossApplication.getContext();
+        this.propertyService = new PropertyService(new PropertyRepoWebService(), new SearchHistoryRepoDb(context));
         this.authService = new AuthService();
     }
 
-    public static ApplicationServiceFactory getInstance(Context context) {
+    public static ApplicationServiceFactory getInstance() {
         if(instance == null) {
-            instance = new ApplicationServiceFactory(context);
+            instance = new ApplicationServiceFactory();
         }
 
         return instance;

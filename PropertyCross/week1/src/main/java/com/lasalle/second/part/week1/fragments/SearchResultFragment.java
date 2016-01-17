@@ -102,7 +102,7 @@ public class SearchResultFragment extends Fragment {
         TabLayout tabLayout = (TabLayout) searchResultview.findViewById(R.id.search_results_frag_tabs);
         ViewPager viewPager = (ViewPager) searchResultview.findViewById(R.id.search_results_frag_content);
 
-        PropertySearch lastSearch = ApplicationServiceFactory.getInstance(getContext()).getPropertyService().getLastSearch();
+        PropertySearch lastSearch = ApplicationServiceFactory.getInstance().getPropertyService().getLastSearch();
 
         ArrayList<SectionTabAdapter.Entry> entryArrayList = new ArrayList<>();
         SectionTabAdapter.Entry entryAll = createTabEntry(lastSearch, true, true, getString(R.string.results_tab_all));

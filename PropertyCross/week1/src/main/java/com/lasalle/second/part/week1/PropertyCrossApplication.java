@@ -19,7 +19,7 @@ public class PropertyCrossApplication extends Application {
         context = this;
 
         VolleyRequestHandler.getInstance();
-        ApplicationServiceFactory.getInstance(this).getAuthService().requestAccessToken();
+        ApplicationServiceFactory.getInstance().getAuthService().requestAccessToken();
     }
 
     public static Context getContext() {

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 
 import com.lasalle.second.part.week1.R;
+import com.lasalle.second.part.week1.listeners.PropertyRepoListener;
 import com.lasalle.second.part.week1.model.AccessToken;
 import com.lasalle.second.part.week1.model.Property;
 import com.lasalle.second.part.week1.model.PropertySearch;
@@ -23,18 +24,19 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class FilePropertyRepo implements PropertyRepo {
+public class PropertyRepoFile implements PropertyRepo {
 
     private final String PROPERTIES_ARRAY_NODE_NAME = "datos";
 
     private Context context;
 
-    public FilePropertyRepo(Context context) {
+    public PropertyRepoFile(Context context) {
         this.context = context;
     }
 
     @Override
-    public JSONArray searchProperties(PropertySearch search, AccessToken accessToken) {
+    public void searchProperties(PropertySearch search, AccessToken accessToken,
+                                 PropertyRepoListener<JSONArray> listener) {
         String propertiesString = new String("");
 
         if(search.isSell() && search.isRent())
@@ -50,7 +52,10 @@ public class FilePropertyRepo implements PropertyRepo {
             propertiesString = readStringFromFile(R.raw.rent_property_list_sell);
         }
 
-        return JSonUtils.createArrayFromString(propertiesString, PROPERTIES_ARRAY_NODE_NAME);
+
+        JSONArray resultArray = JSonUtils.createArrayFromString(propertiesString, PROPERTIES_ARRAY_NODE_NAME);
+
+        listener.onDataLoaded(resultArray);
     }
 
     protected String readStringFromFile(int file) {

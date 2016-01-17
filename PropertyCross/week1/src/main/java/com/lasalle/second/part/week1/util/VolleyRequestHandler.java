@@ -14,7 +14,8 @@ import com.lasalle.second.part.week1.PropertyCrossApplication;
 public class VolleyRequestHandler {
     public static final String TAG = VolleyRequestHandler.class.getSimpleName();
 
-    public static final String API_BASE_URL = "https://push.opentrends.net:8100/mdpa/api/";
+    //public static final String API_BASE_URL = "https://push.opentrends.net:8100/mdpa/api/";
+    public static final String API_BASE_URL = "http://private-cc901a-mdpa.apiary-mock.com/";
     public static final String API_ID = "android";
     public static final String API_SECRET = "SomeRandomCharsAndNumbers";
 

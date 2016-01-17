@@ -1,5 +1,7 @@
 package com.lasalle.second.part.week1.services;
 
+import com.lasalle.second.part.week1.listeners.PropertyRepoListener;
+import com.lasalle.second.part.week1.listeners.PropertyServiceListener;
 import com.lasalle.second.part.week1.model.AccessToken;
 import android.util.Log;
 import com.lasalle.second.part.week1.model.Property;
@@ -30,28 +32,47 @@ public class PropertyService {
         this.lastSearch = new PropertySearch();
     }
 
-    public List<Property> searchPropertiesCachingResult(PropertySearch currentSearch,
-                                                        AccessToken accessToken) {
-        return searchProperties(currentSearch, true, accessToken);
+    public void searchPropertiesCachingResult(PropertySearch currentSearch,
+                                                AccessToken accessToken,
+                                            PropertyServiceListener listener) {
+        searchProperties(currentSearch, true, accessToken, listener);
     }
 
-    public List<Property> searchPropertiesWithoutCaching(PropertySearch currentSearch,
-                                                         AccessToken accessToken) {
-        return searchProperties(currentSearch, false, accessToken);
+    public void searchPropertiesWithoutCaching(PropertySearch currentSearch,
+                                                         AccessToken accessToken,
+                                                         PropertyServiceListener listener) {
+        searchProperties(currentSearch, false, accessToken, listener);
     }
 
     public PropertySearch getLastSearch() {
         return lastSearch;
     }
 
-    protected List<Property> searchProperties(PropertySearch currentSearch, boolean cacheResults,
-                                              AccessToken accessToken) {
+    protected void searchProperties(final PropertySearch currentSearch, final boolean cacheResults,
+                                              AccessToken accessToken, final PropertyServiceListener listener) {
         JSONArray propertiesJsonArray = getCachedSearch(currentSearch);
         if(propertiesJsonArray.length() == 0) {
-            propertiesJsonArray = this.propertyRepo.searchProperties(currentSearch, accessToken);
+            this.propertyRepo.searchProperties(currentSearch, accessToken,
+                    new PropertyRepoListener<JSONArray>() {
+                        @Override
+                        public void onDataLoaded(JSONArray data) {
+                            createPropertyListFromSearchResult(currentSearch, data, cacheResults, listener);
+                        }
+                    });
         }
+        else {
+            createPropertyListFromSearchResult(currentSearch, propertiesJsonArray, cacheResults, listener);
+        }
+    }
 
-        JsonParseResults parseResults = parseFromJson(propertiesJsonArray);
+    protected void createPropertyListFromSearchResult(PropertySearch currentSearch,
+                                                      JSONArray propertiesJsonArray,
+                                                      boolean cacheResults,
+                                                      PropertyServiceListener propertyServiceListener) {
+
+        final boolean includeRent = currentSearch.isRent();
+        final boolean includeSell = currentSearch.isSell();
+        JsonParseResults parseResults = parseFromJson(propertiesJsonArray, includeRent, includeSell);
 
         if(cacheResults) {
             final int totalRent = parseResults.getTotalRent();
@@ -64,10 +85,10 @@ public class PropertyService {
         currentSearch.setResults(resultList);
         lastSearch = currentSearch;
 
-        return resultList;
+        propertyServiceListener.onDataLoaded(resultList);
     }
 
-    protected JsonParseResults parseFromJson(JSONArray jsonArray) {
+    protected JsonParseResults parseFromJson(JSONArray jsonArray, boolean includeRent, boolean includeSell) {
         List<Property> propertyList = new ArrayList<>();
         Integer totalRent = 0;
         Integer totalSell = 0;
@@ -81,12 +102,16 @@ public class PropertyService {
 
                 if(property.isRent()) {
                     ++totalRent;
+                    if(includeRent) {
+                        propertyList.add(property);
+                    }
                 }
                 else {
                     ++totalSell;
+                    if(includeSell) {
+                        propertyList.add(property);
+                    }
                 }
-
-                propertyList.add(property);
             }
 
         } catch (JSONException exc) {

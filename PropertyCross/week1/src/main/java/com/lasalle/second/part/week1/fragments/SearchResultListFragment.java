@@ -17,6 +17,7 @@ import android.widget.SimpleAdapter;
 
 import com.lasalle.second.part.week1.R;
 import com.lasalle.second.part.week1.adapters.SearchResultAdapter;
+import com.lasalle.second.part.week1.listeners.PropertyServiceListener;
 import com.lasalle.second.part.week1.model.AccessToken;
 import com.lasalle.second.part.week1.model.Property;
 import com.lasalle.second.part.week1.model.PropertySearch;
@@ -72,21 +73,29 @@ public class SearchResultListFragment extends Fragment {
 
         View fragmentView = inflater.inflate(R.layout.fragment_search_result_list, container, false);
 
-        List<Property> searchResults = doPropertySearch();
-
         listView = (ListView) fragmentView.findViewById(R.id.fragment_search_list);
-        listView.setAdapter(new SearchResultAdapter(getActivity(), searchResults));
+        listView.setAdapter(new SearchResultAdapter(getActivity(), new ArrayList<Property>()));
+
+        doPropertySearch();
 
         return fragmentView;
     }
 
-    protected List<Property> doPropertySearch() {
-        ApplicationServiceFactory applicationServiceFactory = ApplicationServiceFactory.getInstance(getContext());
+    protected void doPropertySearch() {
+        ApplicationServiceFactory applicationServiceFactory = ApplicationServiceFactory.getInstance();
 
         PropertyService propertyService = applicationServiceFactory.getPropertyService();
         AccessToken accessToken = applicationServiceFactory.getAuthService().getAccessToken();
 
-        return propertyService.searchPropertiesWithoutCaching(currentSearch, accessToken);
+        propertyService.searchPropertiesWithoutCaching(currentSearch, accessToken,
+                new PropertyServiceListener<List<Property>>() {
+                    @Override
+                    public void onDataLoaded(List<Property> data) {
+                        SearchResultAdapter searchResultAdapter = (SearchResultAdapter) listView.getAdapter();
+                        searchResultAdapter.setPropertiesList(data);
+                        searchResultAdapter.notifyDataSetChanged();
+                    }
+                });
     }
 
     protected void registerOrderIntent() {
@@ -97,15 +106,11 @@ public class SearchResultListFragment extends Fragment {
                 PropertySearch.SortCriteria sortCriteria = (PropertySearch.SortCriteria) intent.getSerializableExtra(ORDER_INTENT_CRITERIA);
                 currentSearch.setSortCriteria(sortCriteria);
 
-                List<Property> searchResults = doPropertySearch();
-                SearchResultAdapter searchResultAdapter = (SearchResultAdapter) listView.getAdapter();
-                searchResultAdapter.setPropertiesList(searchResults);
-                searchResultAdapter.notifyDataSetChanged();
+                doPropertySearch();
             }
         };
 
         getActivity().registerReceiver(broadcastReceiver, intentFilter);
-
     }
 
 }

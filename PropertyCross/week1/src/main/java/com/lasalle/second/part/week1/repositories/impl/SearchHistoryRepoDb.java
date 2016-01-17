@@ -12,7 +12,7 @@ import com.lasalle.second.part.week1.repositories.SearchHistoryRepo;
 import com.lasalle.second.part.week1.util.DatabaseHandler;
 import com.lasalle.second.part.week1.util.DatabaseUtils;
 
-public class DbSearchHistoryRepo implements SearchHistoryRepo {
+public class SearchHistoryRepoDb implements SearchHistoryRepo {
 
     private static final  String TABLE_NAME = "searchHistory";
 
@@ -29,7 +29,7 @@ public class DbSearchHistoryRepo implements SearchHistoryRepo {
 
     private Context context;
 
-    public DbSearchHistoryRepo(Context context) {
+    public SearchHistoryRepoDb(Context context) {
         this.context = context;
     }
 

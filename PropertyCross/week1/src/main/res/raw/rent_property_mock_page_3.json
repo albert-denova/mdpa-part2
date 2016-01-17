@@ -1,0 +1,37 @@
+{
+  "criterio": {
+    "alquiler": "true",
+    "ciudad": "barcelona",
+    "cp": "08080",
+    "direccion": "venezuela 105, planta 1",
+    "venta": "true"
+  },
+  "datos": [
+    {
+      "alquiler": false,
+      "favorito": false,
+      "idPropiedad": "id-propiedad-T",
+      "latitud": 41.412479,
+      "longitud": 2.210534,
+      "metros": 19.5,
+      "precio": 50000.756,
+      "titulo": "lejos 397",
+      "venta": true
+    },
+    {
+      "alquiler": false,
+      "favorito": false,
+      "idPropiedad": "id-propiedad-T",
+      "latitud": 41.412479,
+      "longitud": 2.210534,
+      "metros": 69.5,
+      "precio": 20000.756,
+      "titulo": "Casts 399",
+      "venta": true
+    }
+  ],
+  "page": 3,
+  "pageSize": 2,
+  "status": "OK",
+  "total": 7
+}

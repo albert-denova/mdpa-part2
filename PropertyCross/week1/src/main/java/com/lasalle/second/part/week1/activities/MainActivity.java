@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lasalle.second.part.week1.R;
+import com.lasalle.second.part.week1.listeners.PropertyServiceListener;
 import com.lasalle.second.part.week1.model.AccessToken;
 import com.lasalle.second.part.week1.model.Property;
 import com.lasalle.second.part.week1.model.PropertySearch;
@@ -83,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements TextView.OnEditor
 
             Log.d(this.getLocalClassName(), "Search Action: " + storedText);
 
-            ApplicationServiceFactory applicationServiceFactory = ApplicationServiceFactory.getInstance(this);
+            ApplicationServiceFactory applicationServiceFactory = ApplicationServiceFactory.getInstance();
             AuthService authService = applicationServiceFactory.getAuthService();
 
             if(!authService.isAccesTokenValid())
@@ -96,17 +97,12 @@ public class MainActivity extends AppCompatActivity implements TextView.OnEditor
             AccessToken accessToken = authService.getAccessToken();
 
             PropertySearch propertySearch = new PropertySearch(storedText, isRent, isSell);
-            List<Property> propertyList = propertyService.searchPropertiesCachingResult(propertySearch, accessToken);
-
-            if(propertyList.isEmpty())
-            {
-                createToastNoResultsFound();
-            }
-            else
-            {
-                Intent intent = new Intent(this, ResultsContainerActivity.class);
-                startActivity(intent);
-            }
+            propertyService.searchPropertiesCachingResult(propertySearch, accessToken, new PropertyServiceListener<List<Property>>() {
+                @Override
+                public void onDataLoaded(List<Property> propertyList) {
+                    processSearchResults(propertyList);
+                }
+            });
         }
         return handled;
     }
@@ -164,6 +160,18 @@ public class MainActivity extends AppCompatActivity implements TextView.OnEditor
 
         Toast toast = Toast.makeText(context, text, duration);
         toast.show();
+    }
+
+    protected void processSearchResults(List<Property> propertyList) {
+        if(propertyList.isEmpty())
+        {
+            createToastNoResultsFound();
+        }
+        else
+        {
+            Intent intent = new Intent(this, ResultsContainerActivity.class);
+            startActivity(intent);
+        }
     }
 
 }
