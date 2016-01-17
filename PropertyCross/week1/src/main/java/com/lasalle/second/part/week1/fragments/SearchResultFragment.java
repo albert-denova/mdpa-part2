@@ -122,16 +122,7 @@ public class SearchResultFragment extends Fragment {
 
     protected SectionTabAdapter.Entry createTabEntry(PropertySearch baseSearch, boolean toRent, boolean toSell, String name)
     {
-        PropertySearch tabSearch = baseSearch;
-        tabSearch.setRent(toRent);
-        tabSearch.setSell(toSell);
-
-        Bundle fragmentArguments = new Bundle();
-        PropertySearchBundleBuilder.addToBundle(tabSearch, fragmentArguments);
-
-        Fragment fragment = new SearchResultListFragment();
-        fragment.setArguments(fragmentArguments);
-
+        Fragment fragment = SearchResultListFragment.newInstance(baseSearch, toRent, toSell);
         return new SectionTabAdapter.Entry(fragment, name);
     }
 }

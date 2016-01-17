@@ -40,6 +40,20 @@ public class SearchResultListFragment extends Fragment {
     private PropertySearch currentSearch;
     private ListView listView;
 
+    public static SearchResultListFragment newInstance(PropertySearch baseSearch, boolean toRent, boolean toSell) {
+        PropertySearch tabSearch = baseSearch;
+        tabSearch.setRent(toRent);
+        tabSearch.setSell(toSell);
+
+        Bundle fragmentArguments = new Bundle();
+        PropertySearchBundleBuilder.addToBundle(tabSearch, fragmentArguments);
+
+        SearchResultListFragment fragment = new SearchResultListFragment();
+        fragment.setArguments(fragmentArguments);
+
+        return fragment;
+    }
+
     public SearchResultListFragment() {
     }
 

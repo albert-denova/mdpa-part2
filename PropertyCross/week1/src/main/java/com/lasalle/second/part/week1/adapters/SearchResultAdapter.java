@@ -15,9 +15,6 @@ import com.lasalle.second.part.week1.model.Property;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by albert.denova on 28/12/15.
- */
 public class SearchResultAdapter extends BaseAdapter {
 
     private static LayoutInflater layoutInflater = null;
