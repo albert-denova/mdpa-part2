@@ -13,6 +13,7 @@ import com.lasalle.second.part.week1.repositories.PropertyRepo;
 import com.lasalle.second.part.week1.util.VolleyRequestHandler;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class PropertyRepoWebService implements PropertyRepo {
@@ -42,13 +43,18 @@ public class PropertyRepoWebService implements PropertyRepo {
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        final boolean hasMorePages = extractSearchResponseAndCheckIfMorePages(response);
-                        if(hasMorePages) {
-                            doSearchRequest(search, accessToken, listener, currentPage + 1);
+                        try {
+                            mergeResponseProperties(response);
+                            final boolean hasMorePages = extractSearchResponseAndCheckIfMorePages(response);
+                            if (hasMorePages) {
+                                doSearchRequest(search, accessToken, listener, currentPage + 1);
+                            } else {
+                                listener.onDataLoaded(searchResultArray);
+                            }
                         }
-                        else
-                        {
-                            listener.onDataLoaded(searchResultArray);
+                        catch (Exception e) {
+                            Log.d(getClass().getName(), "Exception", e);
+                            listener.onDataLoaded(new JSONArray());
                         }
                     }
                 },
@@ -63,29 +69,23 @@ public class PropertyRepoWebService implements PropertyRepo {
         VolleyRequestHandler.getInstance().addToRequestQueue(jsonRequest);
     }
 
-    protected boolean extractSearchResponseAndCheckIfMorePages(JSONObject response) {
-        boolean hasMorePages = false;
+    protected boolean extractSearchResponseAndCheckIfMorePages(JSONObject response) throws JSONException {
+        final int totalElements = response.getInt(TOTAL_ELEMENTS_NODE_NAME);
+        final int elementsPerPage = response.getInt(ELEMENTS_PER_PAGE_NODE_NAME);
+        final int currentPage = response.getInt(PAGE_NUMBER_NODE_NAME);
 
-        try {
-            JSONArray propertiesArray = response.getJSONArray(PROPERTIES_ARRAY_NODE_NAME);
-            final int propertiesSize = propertiesArray.length();
-            for(int index = 0; index < propertiesSize; ++index) {
-                searchResultArray.put(propertiesArray.getJSONObject(index));
-            }
-
-            final int totalElements = response.getInt(TOTAL_ELEMENTS_NODE_NAME);
-            final int elementsPerPage = response.getInt(ELEMENTS_PER_PAGE_NODE_NAME);
-            final int currentPage = response.getInt(PAGE_NUMBER_NODE_NAME);
-
-            final int totalPages = (totalElements + elementsPerPage - 1)/elementsPerPage;
-            hasMorePages = currentPage < totalPages;
-        }
-        catch (Exception e) {
-            Log.d(getClass().getName(), "Exception", e);
-
-        }
+        final int totalPages = (totalElements + elementsPerPage - 1)/elementsPerPage;
+        boolean hasMorePages = currentPage < totalPages;
 
         return hasMorePages;
+    }
+
+    private void mergeResponseProperties(JSONObject response) throws JSONException {
+        JSONArray propertiesArray = response.getJSONArray(PROPERTIES_ARRAY_NODE_NAME);
+        final int propertiesSize = propertiesArray.length();
+        for(int index = 0; index < propertiesSize; ++index) {
+            searchResultArray.put(propertiesArray.getJSONObject(index));
+        }
     }
 
 }
