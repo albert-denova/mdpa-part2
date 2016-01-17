@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements TextView.OnEditor
 
             PropertyService propertyService = ApplicationServiceFactory.getInstance(this).getPropertyService();
             PropertySearch propertySearch = new PropertySearch(storedText, isRent, isSell);
-            List<Property> propertyList = propertyService.searchProperties(propertySearch);
+            List<Property> propertyList = propertyService.searchPropertiesCachingResult(propertySearch);
 
             if(propertyList.isEmpty())
             {

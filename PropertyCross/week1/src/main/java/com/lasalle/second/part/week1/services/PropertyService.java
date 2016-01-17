@@ -30,18 +30,34 @@ public class PropertyService {
         this.lastSearch = new PropertySearch();
     }
 
-    public List<Property> searchProperties(PropertySearch currentSearch)
-    {
-        Integer totalRent = 0;
-        Integer totalSell = 0;
+    public List<Property> searchPropertiesCachingResult(PropertySearch currentSearch) {
+        return searchProperties(currentSearch, true);
+    }
 
+    public List<Property> searchPropertiesWithoutCaching(PropertySearch currentSearch) {
+        return searchProperties(currentSearch, false);
+    }
+
+    public PropertySearch getLastSearch() {
+        return lastSearch;
+    }
+
+    protected List<Property> searchProperties(PropertySearch currentSearch, boolean cacheResults)
+    {
         JSONArray propertiesJsonArray = getCachedSearch(currentSearch);
         if(propertiesJsonArray.length() == 0) {
             propertiesJsonArray = this.propertyRepo.searchProperties(currentSearch);
         }
 
-        List<Property> resultList = parseFromJson(propertiesJsonArray, totalRent, totalSell);
-        cacheResults(currentSearch, propertiesJsonArray, totalRent, totalSell);
+        JsonParseResults parseResults = parseFromJson(propertiesJsonArray);
+
+        final int totalRent = parseResults.getTotalRent();
+        final int totalSell = parseResults.getTotalSell();
+        List<Property> resultList = parseResults.getPropertyList();
+
+        if(cacheResults) {
+            cacheResults(currentSearch, propertiesJsonArray, totalRent, totalSell);
+        }
 
         sortProperties(resultList, currentSearch.getSortCriteria());
         currentSearch.setResults(resultList);
@@ -50,12 +66,10 @@ public class PropertyService {
         return resultList;
     }
 
-    public PropertySearch getLastSearch() {
-        return lastSearch;
-    }
-
-    protected List<Property> parseFromJson(JSONArray jsonArray, Integer totalRent, Integer totalSell) {
+    protected JsonParseResults parseFromJson(JSONArray jsonArray) {
         List<Property> propertyList = new ArrayList<>();
+        Integer totalRent = 0;
+        Integer totalSell = 0;
 
         try {
             int jsonArraySize = jsonArray.length();
@@ -78,7 +92,7 @@ public class PropertyService {
             Log.e(this.getClass().getName(), "Exception", exc);
         }
 
-        return propertyList;
+        return new JsonParseResults(propertyList, totalRent, totalSell);
     }
 
     protected void sortProperties(List<Property> propertyList, PropertySearch.SortCriteria sortCriteria) {
@@ -130,5 +144,29 @@ public class PropertyService {
         }
 
         return cachedSearchResult;
+    }
+
+    protected class JsonParseResults {
+        private List<Property> propertyList;
+        private int totalRent;
+        private int totalSell;
+
+        public JsonParseResults(List<Property> propertyList, int totalRent, int totalSell) {
+            this.propertyList = propertyList;
+            this.totalRent = totalRent;
+            this.totalSell = totalSell;
+        }
+
+        public List<Property> getPropertyList() {
+            return propertyList;
+        }
+
+        public int getTotalRent() {
+            return totalRent;
+        }
+
+        public int getTotalSell() {
+            return totalSell;
+        }
     }
 }

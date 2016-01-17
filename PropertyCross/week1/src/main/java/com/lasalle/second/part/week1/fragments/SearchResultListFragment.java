@@ -47,7 +47,6 @@ public class SearchResultListFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         currentSearch = PropertySearchBundleBuilder.createFromBundle(getArguments());
         registerOrderIntent();
     }
@@ -68,7 +67,7 @@ public class SearchResultListFragment extends Fragment {
 
     protected List<Property> doPropertySearch() {
         PropertyService propertyService = ApplicationServiceFactory.getInstance(getContext()).getPropertyService();
-        return propertyService.searchProperties(currentSearch);
+        return propertyService.searchPropertiesWithoutCaching(currentSearch);
     }
 
     protected void registerOrderIntent() {
