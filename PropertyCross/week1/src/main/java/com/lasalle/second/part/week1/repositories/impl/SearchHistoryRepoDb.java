@@ -55,10 +55,10 @@ public class SearchHistoryRepoDb implements SearchHistoryRepo {
         Cursor cursor =  database.query(
                 TABLE_NAME,
                 TABLE_COLUMNS,
-                DB_QUERY + "=?",
+                DB_RENT + "=?",
                 new String[]{getQueryFromSearch(propertySearch)},
-                null,
-                null,
+                null, //groupBy
+                null, //having
                 "timestamp DESC",
                 "1");
 
@@ -105,6 +105,8 @@ public class SearchHistoryRepoDb implements SearchHistoryRepo {
             searchHistory.setSellResults(cursor.getInt(cursor.getColumnIndex(DB_NUM_SELL_RESULTS)));
             searchHistory.setTimestamp(cursor.getLong(cursor.getColumnIndex(DB_TIMESTAMP)));
         }
+
+        cursor.close();
 
         return searchHistory;
     }
