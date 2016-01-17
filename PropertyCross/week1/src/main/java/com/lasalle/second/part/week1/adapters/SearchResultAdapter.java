@@ -47,21 +47,18 @@ public class SearchResultAdapter extends BaseAdapter {
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-        View rowView = layoutInflater.inflate(R.layout.search_result_item, null);
+        if(convertView == null) {
+            convertView = layoutInflater.inflate(R.layout.search_result_item, null);
+        }
 
         Property property = propertiesList.get(position);
 
-        setViewImage(rowView);
-        setViewTitle(rowView, property);
-        setViewSubtitle(rowView, property);
-        setViewPrice(rowView, property);
+        setViewImage(convertView);
+        setViewTitle(convertView, property);
+        setViewSubtitle(convertView, property);
+        setViewPrice(convertView, property);
 
-        return rowView;
-    }
-
-
-    public List<Property> getPropertiesList() {
-        return propertiesList;
+        return convertView;
     }
 
     public void setPropertiesList(List<Property> propertiesList) {
