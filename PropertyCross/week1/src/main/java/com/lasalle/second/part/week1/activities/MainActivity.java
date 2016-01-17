@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -21,6 +22,7 @@ import android.widget.Toast;
 import com.lasalle.second.part.week1.R;
 import com.lasalle.second.part.week1.model.AccessToken;
 import com.lasalle.second.part.week1.model.Property;
+import com.lasalle.second.part.week1.model.PropertySearch;
 import com.lasalle.second.part.week1.services.ApplicationServiceFactory;
 import com.lasalle.second.part.week1.services.AuthService;
 import com.lasalle.second.part.week1.services.PropertyService;
@@ -65,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements TextView.OnEditor
     }
 
     @Override
-    public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+    public boolean onEditorAction(TextView editText, int actionId, KeyEvent event) {
         boolean handled = false;
 
         final boolean isEnterKey = (event.getKeyCode() == KeyEvent.KEYCODE_ENTER) &&
@@ -74,8 +76,9 @@ public class MainActivity extends AppCompatActivity implements TextView.OnEditor
         if (actionId == EditorInfo.IME_ACTION_SEARCH || isEnterKey) {
             handled = true;
 
-            EditText editText = (EditText) findViewById(R.id.locationSearchText);
-            String storedText = editText.getText().toString();
+            final String storedText = editText.getText().toString();
+            final boolean isRent = ((CheckBox) findViewById(R.id.optionRent)).isChecked();
+            final boolean isSell = ((CheckBox) findViewById(R.id.optionBuy)).isChecked();
             hideKeyboard(editText);
 
             Log.d(this.getLocalClassName(), "Search Action: " + storedText);
@@ -91,7 +94,9 @@ public class MainActivity extends AppCompatActivity implements TextView.OnEditor
 
             PropertyService propertyService = applicationServiceFactory.getPropertyService();
             AccessToken accessToken = authService.getAccessToken();
-            List<Property> propertyList = propertyService.searchProperties(storedText, accessToken);
+
+            PropertySearch propertySearch = new PropertySearch(storedText, isRent, isSell);
+            List<Property> propertyList = propertyService.searchPropertiesCachingResult(propertySearch, accessToken);
 
             if(propertyList.isEmpty())
             {

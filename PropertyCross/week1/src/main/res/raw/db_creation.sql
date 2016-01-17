@@ -1,0 +1,10 @@
+CREATE TABLE searchHistory (
+    _id	INTEGER PRIMARY KEY AUTOINCREMENT,
+	query	TEXT NOT NULL,
+	rent	INTEGER DEFAULT 0,
+    sell	INTEGER DEFAULT 0,
+	rentResults INTEGER DEFAULT 0,
+	sellResults INTEGER DEFAULT 0,
+	rawResults	TEXT,
+	timestamp INTEGER NOT NULL UNIQUE
+);

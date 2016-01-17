@@ -2,6 +2,7 @@ package com.lasalle.second.part.week1.services;
 
 import android.content.Context;
 
+import com.lasalle.second.part.week1.repositories.impl.DbSearchHistoryRepo;
 import com.lasalle.second.part.week1.repositories.impl.FilePropertyRepo;
 
 public class ApplicationServiceFactory {
@@ -14,7 +15,7 @@ public class ApplicationServiceFactory {
 
     protected ApplicationServiceFactory(Context context) {
         this.context = context;
-        this.propertyService = new PropertyService(new FilePropertyRepo(context));
+        this.propertyService = new PropertyService(new FilePropertyRepo(context), new DbSearchHistoryRepo(context));
         this.authService = new AuthService();
     }
 

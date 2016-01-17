@@ -37,13 +37,6 @@ public class SectionTabAdapter extends FragmentPagerAdapter {
         this.entryList = entryList;
     }
 
-    public void sort(PropertySearch.SortCriteria sortCriteria) {
-
-
-
-        notifyDataSetChanged();
-    }
-
     @Override
     public Fragment getItem(int position) {
         return entryList.get(position).getFragment();

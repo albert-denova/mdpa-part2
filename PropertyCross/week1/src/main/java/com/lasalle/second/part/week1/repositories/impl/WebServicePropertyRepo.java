@@ -5,6 +5,8 @@ import com.lasalle.second.part.week1.model.Property;
 import com.lasalle.second.part.week1.model.PropertySearch;
 import com.lasalle.second.part.week1.repositories.PropertyRepo;
 
+import org.json.JSONArray;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,8 +16,8 @@ import java.util.List;
 public class WebServicePropertyRepo implements PropertyRepo {
 
     @Override
-    public List<Property> searchProperties(PropertySearch search, AccessToken accessToken) {
-        return new ArrayList<>();
+    public JSONArray searchProperties(PropertySearch search, AccessToken accessToken) {
+        return new JSONArray();
     }
 
 }

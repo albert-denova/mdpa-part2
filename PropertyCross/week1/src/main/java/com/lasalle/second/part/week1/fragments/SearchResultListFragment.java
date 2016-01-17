@@ -22,6 +22,7 @@ import com.lasalle.second.part.week1.model.Property;
 import com.lasalle.second.part.week1.model.PropertySearch;
 import com.lasalle.second.part.week1.services.ApplicationServiceFactory;
 import com.lasalle.second.part.week1.services.PropertyService;
+import com.lasalle.second.part.week1.util.PropertySearchBundleBuilder;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -40,6 +41,20 @@ public class SearchResultListFragment extends Fragment {
     private PropertySearch currentSearch;
     private ListView listView;
 
+    public static SearchResultListFragment newInstance(PropertySearch baseSearch, boolean toRent, boolean toSell) {
+        PropertySearch tabSearch = baseSearch;
+        tabSearch.setRent(toRent);
+        tabSearch.setSell(toSell);
+
+        Bundle fragmentArguments = new Bundle();
+        PropertySearchBundleBuilder.addToBundle(tabSearch, fragmentArguments);
+
+        SearchResultListFragment fragment = new SearchResultListFragment();
+        fragment.setArguments(fragmentArguments);
+
+        return fragment;
+    }
+
     public SearchResultListFragment() {
     }
 
@@ -47,8 +62,7 @@ public class SearchResultListFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        currentSearch = new PropertySearch(getArguments());
+        currentSearch = PropertySearchBundleBuilder.createFromBundle(getArguments());
         registerOrderIntent();
     }
 
@@ -72,7 +86,7 @@ public class SearchResultListFragment extends Fragment {
         PropertyService propertyService = applicationServiceFactory.getPropertyService();
         AccessToken accessToken = applicationServiceFactory.getAuthService().getAccessToken();
 
-        return propertyService.searchProperties(currentSearch, accessToken);
+        return propertyService.searchPropertiesWithoutCaching(currentSearch, accessToken);
     }
 
     protected void registerOrderIntent() {
