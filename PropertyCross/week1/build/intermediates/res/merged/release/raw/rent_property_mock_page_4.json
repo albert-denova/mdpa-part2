@@ -1,0 +1,26 @@
+{
+  "criterio": {
+    "alquiler": "true",
+    "ciudad": "barcelona",
+    "cp": "08080",
+    "direccion": "venezuela 105, planta 1",
+    "venta": "true"
+  },
+  "datos": [
+    {
+      "alquiler": false,
+      "favorito": false,
+      "idPropiedad": "id-propiedad-T2",
+      "latitud": 41.412479,
+      "longitud": 2.210534,
+      "metros": 86.5,
+      "precio": 20111.756,
+      "titulo": "Test 599",
+      "venta": true
+    }
+  ],
+  "page": 4,
+  "pageSize": 2,
+  "status": "OK",
+  "total": 7
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/exploded-aar/PropertyCross/week1/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="994d1eb41c1cecea049736a9ef9cef54e1ce82e1">
+        <dex dex="/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/pre-dexed/debug/PropertyCross-week1-unspecified_bdfb77abc9de7ce588219d10d7177ab4969b4e21.jar" />
+    </item>
+
+</items>

@@ -1,0 +1,37 @@
+{
+  "criterio": {
+    "alquiler": "true",
+    "ciudad": "barcelona",
+    "cp": "08080",
+    "direccion": "venezuela 105, planta 1",
+    "venta": "true"
+  },
+  "datos": [
+    {
+      "alquiler": true,
+      "favorito": false,
+      "idPropiedad": "id-propiedad-X",
+      "latitud": 41.412479,
+      "longitud": 2.210537,
+      "metros": 69.5,
+      "precio": 30000.253,
+      "titulo": "CLorem 314",
+      "venta": false
+    },
+    {
+      "alquiler": false,
+      "favorito": false,
+      "idPropiedad": "id-propiedad-T",
+      "latitud": 41.412479,
+      "longitud": 2.210534,
+      "metros": 59.5,
+      "precio": 30000.756,
+      "titulo": "Lori 394",
+      "venta": true
+    }
+  ],
+  "page": 1,
+  "pageSize": 2,
+  "status": "OK",
+  "total": 7
+}

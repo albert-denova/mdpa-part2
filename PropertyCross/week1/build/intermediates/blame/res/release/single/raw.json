@@ -1,0 +1,38 @@
+[
+    {
+        "merged": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/week1/build/intermediates/res/merged/release/raw/rent_property_mock_page_3.json",
+        "source": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/week1/src/main/res/raw/rent_property_mock_page_3.json"
+    },
+    {
+        "merged": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/week1/build/intermediates/res/merged/release/raw/rent_property_list_rent.json",
+        "source": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/week1/src/main/res/raw/rent_property_list_rent.json"
+    },
+    {
+        "merged": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/week1/build/intermediates/res/merged/release/raw/rent_property_mock_page_4.json",
+        "source": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/week1/src/main/res/raw/rent_property_mock_page_4.json"
+    },
+    {
+        "merged": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/week1/build/intermediates/res/merged/release/raw/db_creation.sql",
+        "source": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/week1/src/main/res/raw/db_creation.sql"
+    },
+    {
+        "merged": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/week1/build/intermediates/res/merged/release/raw/rent_property_mock_page_2.json",
+        "source": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/week1/src/main/res/raw/rent_property_mock_page_2.json"
+    },
+    {
+        "merged": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/week1/build/intermediates/res/merged/release/raw/rent_property_list_all.json",
+        "source": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/week1/src/main/res/raw/rent_property_list_all.json"
+    },
+    {
+        "merged": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/week1/build/intermediates/res/merged/release/raw/db_removal.sql",
+        "source": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/week1/src/main/res/raw/db_removal.sql"
+    },
+    {
+        "merged": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/week1/build/intermediates/res/merged/release/raw/rent_property_list_sell.json",
+        "source": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/week1/src/main/res/raw/rent_property_list_sell.json"
+    },
+    {
+        "merged": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/week1/build/intermediates/res/merged/release/raw/rent_property_mock_page_1.json",
+        "source": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/week1/src/main/res/raw/rent_property_mock_page_1.json"
+    }
+]

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorAccent">#72a700</color>
+    <color name="colorBackground">#eeeeee</color>
+    <color name="colorPrimary">#72a700</color>
+    <color name="colorPrimaryDark">#b7de64</color>
+    <color name="resultItemShadowColor">#dfdfdf</color>
+    <color name="searchTabLayoutTextColor">#FFF</color>
+    <color name="whiteBackground">#fff</color>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="previous_results_search_title">16dp</dimen>
+    <dimen name="result_item_shadow_bottom_size">2dp</dimen>
+    <dimen name="result_item_shadow_right_size">2dp</dimen>
+    <string name="app_name">PropertyCross-Week1</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="location_hint">City/Postal Code/Address</string>
+    <string name="location_icon">Search using my current location</string>
+    <string name="main_activity_title">Search properties</string>
+    <string name="option_buy">To Buy</string>
+    <string name="option_rent">To Rent</string>
+    <string name="previous_results_title">Recent Searches</string>
+    <string name="results_price">%.0f€</string>
+    <string name="results_subtitle_text_rent">%.0fm2 to rent</string>
+    <string name="results_subtitle_text_sale">%.0fm2 for sale</string>
+    <string name="results_tab_all">All</string>
+    <string name="results_tab_rent">To Rent</string>
+    <string name="results_tab_sell">For Sale</string>
+    <string name="search_error">An error occurred, try again later!</string>
+    <string name="search_hint_pulse">Press</string>
+    <string name="search_hint_sentence">to search within you current location</string>
+    <string name="search_not_found">No results found</string>
+    <string name="search_option_sort_distance">By distance</string>
+    <string name="search_option_sort_footage">By footage</string>
+    <string name="search_option_sort_price">By price</string>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <style name="previous_results_search_title">
+        <item name="android:textColor">#000000</item>
+        <item name="android:textSize">@dimen/previous_results_search_title</item>
+    </style>
+    <style name="searchTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">@color/colorPrimaryDark</item>
+        <item name="tabIndicatorHeight">5dp</item>
+        <item name="tabBackground">@color/colorPrimary</item>
+        <item name="tabSelectedTextColor">#FFF</item>
+        <item name="tabTextAppearance">@style/searchTabLayoutText</item>
+    </style>
+    <style name="searchTabLayoutText" parent="TextAppearance.Design.Tab">
+        <item name="android:textColor">@color/searchTabLayoutTextColor</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+    <style name="toolBarStyle" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="android:textColor">#000</item>
+        <item name="android:textColorPrimary">#fff</item>
+        <item name="android:textColorSecondary">#000</item>
+    </style>
+</resources>
