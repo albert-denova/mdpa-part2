@@ -156,6 +156,10 @@
         "source": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_action_bar_title_item.xml"
     },
     {
+        "merged": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/res/merged/debug/layout/activity_user_login.xml",
+        "source": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/exploded-aar/PropertyCross/week1/unspecified/res/layout/activity_user_login.xml"
+    },
+    {
         "merged": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/res/merged/debug/layout/support_simple_spinner_dropdown_item.xml",
         "source": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/support_simple_spinner_dropdown_item.xml"
     },

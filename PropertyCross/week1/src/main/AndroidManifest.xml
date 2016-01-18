@@ -5,15 +5,14 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".PropertyCrossApplication"
         android:allowBackup="true"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:name=".PropertyCrossApplication">
-
+        android:theme="@style/AppTheme">
         <activity android:name=".activities.MainActivity" />
         <activity android:name=".activities.ResultsContainerActivity" />
-
+        <activity android:name=".activities.UserLoginActivity"></activity>
     </application>
 
 </manifest>

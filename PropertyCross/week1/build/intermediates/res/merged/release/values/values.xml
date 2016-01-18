@@ -282,6 +282,8 @@
     <string name="location_hint">City/Postal Code/Address</string>
     <string name="location_icon">Search using my current location</string>
     <string name="main_activity_title">Search properties</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="option_buy">To Buy</string>
     <string name="option_rent">To Rent</string>
     <string name="previous_results_title">Recent Searches</string>
@@ -299,6 +301,8 @@
     <string name="search_option_sort_footage">By footage</string>
     <string name="search_option_sort_price">By price</string>
     <string name="status_bar_notification_info_overflow">999+</string>
+    <string name="user_login_title">Log in</string>
+    <string name="user_register_title">Register</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
     <style name="Animation.AppCompat.Dialog" parent="Base.Animation.AppCompat.Dialog"/>
@@ -308,6 +312,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="drawerArrowStyle">@style/drawerArrowStyle</item>
     </style>
     <style name="Base.AlertDialog.AppCompat" parent="android:Widget">
         <item name="android:layout">@layout/abc_alert_dialog_material</item>
@@ -1655,6 +1660,10 @@
         <item name="errorTextAppearance">@style/TextAppearance.Design.Error</item>
         <item name="counterTextAppearance">@style/TextAppearance.Design.Counter</item>
         <item name="counterOverflowTextAppearance">@style/TextAppearance.Design.Counter.Overflow</item>
+    </style>
+    <style name="drawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <item name="color">@android:color/white</item>
     </style>
     <style name="previous_results_search_title">
         <item name="android:textColor">#000000</item>

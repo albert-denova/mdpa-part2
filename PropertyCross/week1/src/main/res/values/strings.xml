@@ -19,6 +19,10 @@
     <string name="search_option_sort_footage">By footage</string>
     <string name="search_not_found">No results found</string>
     <string name="search_error">An error occurred, try again later!</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="user_login_title">Log in</string>
+    <string name="user_register_title">Register</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

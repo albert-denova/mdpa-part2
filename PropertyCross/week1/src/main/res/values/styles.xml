@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="drawerArrowStyle">@style/drawerArrowStyle</item>
     </style>
 
     <style name="toolBarStyle" parent="ThemeOverlay.AppCompat.ActionBar">
@@ -32,4 +33,10 @@
         <item name="android:textAllCaps">true</item>
     </style>
 
+    <style name="drawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <item name="color">@android:color/white</item>
+    </style>
+
 </resources>
+

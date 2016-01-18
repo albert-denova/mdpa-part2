@@ -3,6 +3,11 @@ package com.lasalle.second.part.week1.activities;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -20,6 +25,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lasalle.second.part.week1.R;
+import com.lasalle.second.part.week1.fragments.NavigationDrawerFragment;
 import com.lasalle.second.part.week1.listeners.PropertyServiceListener;
 import com.lasalle.second.part.week1.model.AccessToken;
 import com.lasalle.second.part.week1.model.Property;
@@ -28,7 +34,6 @@ import com.lasalle.second.part.week1.services.ApplicationServiceFactory;
 import com.lasalle.second.part.week1.services.AuthService;
 import com.lasalle.second.part.week1.services.PropertyService;
 
-import java.security.Key;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -54,17 +59,8 @@ public class MainActivity extends AppCompatActivity implements TextView.OnEditor
         EditText editText = (EditText) findViewById(R.id.locationSearchText);
         editText.setOnEditorActionListener(this);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.mainActivityToolbar);
-        toolbar.setTitle(getString(R.string.main_activity_title));
-        setSupportActionBar(toolbar);
-
-        /* TEMP */
-        /*
-        PropertyService propertyService = ApplicationServiceFactory.getInstance(this).getPropertyService();
-        propertyService.searchProperties("hh");
-
-        Intent intent = new Intent(this, ResultsContainerActivity.class);
-        startActivity(intent);*/
+        setupToolbar();
+        setupNavigationDrawer();
     }
 
     @Override
@@ -174,4 +170,28 @@ public class MainActivity extends AppCompatActivity implements TextView.OnEditor
         }
     }
 
+    protected void setupToolbar() {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.mainActivityToolbar);
+        toolbar.setTitle(getString(R.string.main_activity_title));
+        setSupportActionBar(toolbar);
+
+        DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle mDrawerToggle = new ActionBarDrawerToggle(
+                this,  mDrawerLayout, toolbar,
+                R.string.navigation_drawer_open, R.string.navigation_drawer_close
+        );
+        mDrawerLayout.setDrawerListener(mDrawerToggle);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        mDrawerToggle.syncState();
+    }
+
+    protected void setupNavigationDrawer() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        Fragment navigationDrawerFragment = new NavigationDrawerFragment();
+        fragmentTransaction.add(R.id.drawer_layout, navigationDrawerFragment);
+        fragmentTransaction.commit();
+    }
 }

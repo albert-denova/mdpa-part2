@@ -176,6 +176,10 @@
         "source": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/week1/src/main/res/layout/fragment_search_result.xml"
     },
     {
+        "merged": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/week1/build/intermediates/res/merged/release/layout/activity_user_login.xml",
+        "source": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/week1/src/main/res/layout/activity_user_login.xml"
+    },
+    {
         "merged": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/week1/build/intermediates/res/merged/release/layout/activity_results_container.xml",
         "source": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/week1/src/main/res/layout/activity_results_container.xml"
     },
