@@ -60,6 +60,10 @@
         "source": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/week1/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.6.0/res/drawable/com_facebook_button_send_background.xml"
     },
     {
+        "merged": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/week1/build/intermediates/res/merged/androidTest/debug/drawable/ic_view_headline_24dp.xml",
+        "source": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/week1/build/intermediates/bundles/debug/res/drawable/ic_view_headline_24dp.xml"
+    },
+    {
         "merged": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/week1/build/intermediates/res/merged/androidTest/debug/drawable/abc_dialog_material_background_dark.xml",
         "source": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/week1/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_dialog_material_background_dark.xml"
     },
@@ -82,6 +86,10 @@
     {
         "merged": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/week1/build/intermediates/res/merged/androidTest/debug/drawable/abc_dialog_material_background_light.xml",
         "source": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/week1/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_dialog_material_background_light.xml"
+    },
+    {
+        "merged": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/week1/build/intermediates/res/merged/androidTest/debug/drawable/ic_my_location_24dp.xml",
+        "source": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/week1/build/intermediates/bundles/debug/res/drawable/ic_my_location_24dp.xml"
     },
     {
         "merged": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/week1/build/intermediates/res/merged/androidTest/debug/drawable/abc_edit_text_material.xml",

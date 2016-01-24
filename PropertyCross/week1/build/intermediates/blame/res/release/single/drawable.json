@@ -92,6 +92,10 @@
         "source": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/week1/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.6.0/res/drawable/messenger_button_blue_bg_selector.xml"
     },
     {
+        "merged": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/week1/build/intermediates/res/merged/release/drawable/ic_view_headline_24dp.xml",
+        "source": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/week1/src/main/res/drawable/ic_view_headline_24dp.xml"
+    },
+    {
         "merged": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/week1/build/intermediates/res/merged/release/drawable/com_facebook_button_send_background.xml",
         "source": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/week1/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.6.0/res/drawable/com_facebook_button_send_background.xml"
     },
@@ -138,5 +142,9 @@
     {
         "merged": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/week1/build/intermediates/res/merged/release/drawable/com_facebook_button_background.xml",
         "source": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/week1/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.6.0/res/drawable/com_facebook_button_background.xml"
+    },
+    {
+        "merged": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/week1/build/intermediates/res/merged/release/drawable/ic_my_location_24dp.xml",
+        "source": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/week1/src/main/res/drawable/ic_my_location_24dp.xml"
     }
 ]

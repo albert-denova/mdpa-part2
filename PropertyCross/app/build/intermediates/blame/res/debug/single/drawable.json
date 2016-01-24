@@ -1,11 +1,11 @@
 [
     {
-        "merged": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/res/merged/debug/drawable/abc_dialog_material_background_dark.xml",
-        "source": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_dialog_material_background_dark.xml"
-    },
-    {
         "merged": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_background_transition_holo_dark.xml",
         "source": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_list_selector_background_transition_holo_dark.xml"
+    },
+    {
+        "merged": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/res/merged/debug/drawable/abc_dialog_material_background_dark.xml",
+        "source": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_dialog_material_background_dark.xml"
     },
     {
         "merged": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/res/merged/debug/drawable/messenger_button_blue_bg_round.xml",
@@ -126,6 +126,10 @@
     {
         "merged": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/res/merged/debug/drawable/abc_textfield_search_material.xml",
         "source": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable/abc_textfield_search_material.xml"
+    },
+    {
+        "merged": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/res/merged/debug/drawable/ic_my_location_24dp.xml",
+        "source": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/src/main/res/drawable/ic_my_location_24dp.xml"
     },
     {
         "merged": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/res/merged/debug/drawable/com_facebook_button_login_silver_background.xml",

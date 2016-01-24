@@ -14,7 +14,7 @@ import java.io.InputStream;
 public class DatabaseHandler extends  SQLiteOpenHelper {
 
     private static String DB_NAME = "propertyCross";
-    private static int DB_VERSION = 1;
+    private static int DB_VERSION = 3;
     private static SQLiteDatabase.CursorFactory cursorFactory;
     private static DatabaseHandler instance;
     private Context context;

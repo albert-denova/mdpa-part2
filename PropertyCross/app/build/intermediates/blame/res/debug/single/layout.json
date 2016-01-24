@@ -4,12 +4,12 @@
         "source": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/exploded-aar/com.android.support/design/23.1.1/res/layout/design_navigation_item.xml"
     },
     {
-        "merged": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/res/merged/debug/layout/com_facebook_activity_layout.xml",
-        "source": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.6.0/res/layout/com_facebook_activity_layout.xml"
-    },
-    {
         "merged": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/res/merged/debug/layout/messenger_button_send_blue_small.xml",
         "source": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.6.0/res/layout/messenger_button_send_blue_small.xml"
+    },
+    {
+        "merged": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/res/merged/debug/layout/com_facebook_activity_layout.xml",
+        "source": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.6.0/res/layout/com_facebook_activity_layout.xml"
     },
     {
         "merged": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/res/merged/debug/layout/activity_main.xml",

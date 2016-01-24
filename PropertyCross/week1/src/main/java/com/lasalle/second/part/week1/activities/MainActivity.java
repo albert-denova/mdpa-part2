@@ -3,6 +3,7 @@ package com.lasalle.second.part.week1.activities;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -16,10 +17,12 @@ import android.view.Menu;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -93,12 +96,15 @@ public class MainActivity extends AppCompatActivity implements TextView.OnEditor
             AccessToken accessToken = authService.getAccessToken();
 
             PropertySearch propertySearch = new PropertySearch(storedText, isRent, isSell);
+
             propertyService.searchPropertiesCachingResult(propertySearch, accessToken, new PropertyServiceListener<List<Property>>() {
                 @Override
                 public void onDataLoaded(List<Property> propertyList) {
                     processSearchResults(propertyList);
                 }
             });
+
+            displayWaitingButton();
         }
         return handled;
     }
@@ -194,4 +200,22 @@ public class MainActivity extends AppCompatActivity implements TextView.OnEditor
         fragmentTransaction.add(R.id.drawer_layout, navigationDrawerFragment);
         fragmentTransaction.commit();
     }
+
+    protected void displayWaitingButton() {
+        final RelativeLayout waitingLayout = (RelativeLayout) findViewById(R.id.floatingCancelLayout);
+        waitingLayout.setVisibility(View.VISIBLE);
+
+        FloatingActionButton cancelButton = (FloatingActionButton) findViewById(R.id.cancelSearchActionButton);
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ApplicationServiceFactory applicationServiceFactory = ApplicationServiceFactory.getInstance();
+                PropertyService propertyService = applicationServiceFactory.getPropertyService();
+                propertyService.cancelSearch();
+                waitingLayout.setVisibility(View.GONE);
+            }
+        });
+    }
+
+
 }

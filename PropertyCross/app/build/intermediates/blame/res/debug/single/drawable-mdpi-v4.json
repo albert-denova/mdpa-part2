@@ -124,6 +124,10 @@
         "source": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/drawable-mdpi/abc_ic_menu_moreoverflow_mtrl_alpha.png"
     },
     {
+        "merged": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_clear_24dp.png",
+        "source": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/exploded-aar/PropertyCross/week1/unspecified/res/drawable-mdpi-v4/ic_clear_24dp.png"
+    },
+    {
         "merged": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/com_facebook_tooltip_black_xout.png",
         "source": "/Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.6.0/res/drawable-mdpi/com_facebook_tooltip_black_xout.png"
     },

@@ -101,6 +101,16 @@
                             android:hint="@string/location_hint"
                             android:imeOptions="actionSearch"
                             android:singleLine="true" />
+
+                        <ProgressBar
+                            android:id="@+id/view_progress"
+                            style="?android:attr/progressBarStyleLarge"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:indeterminate="true"
+                            android:indeterminateTintMode="src_in"
+                            android:indeterminateTint="@color/colorPrimary"/>
+
                     </LinearLayout>
 
                     <LinearLayout

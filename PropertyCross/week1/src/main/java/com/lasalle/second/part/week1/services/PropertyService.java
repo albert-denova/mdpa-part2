@@ -3,6 +3,9 @@ package com.lasalle.second.part.week1.services;
 import com.lasalle.second.part.week1.listeners.PropertyRepoListener;
 import com.lasalle.second.part.week1.listeners.PropertyServiceListener;
 import com.lasalle.second.part.week1.model.AccessToken;
+
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import com.lasalle.second.part.week1.model.Property;
 import com.lasalle.second.part.week1.model.PropertySearch;
@@ -25,11 +28,13 @@ public class PropertyService {
     private PropertyRepo propertyRepo;
     private SearchHistoryRepo searchHistoryRepo;
     private PropertySearch lastSearch;
+    private boolean interruptSearch;
 
     public PropertyService(PropertyRepo propertyRepo, SearchHistoryRepo searchHistoryRepo) {
         this.propertyRepo = propertyRepo;
         this.searchHistoryRepo = searchHistoryRepo;
         this.lastSearch = new PropertySearch();
+        interruptSearch = false;
     }
 
     public void searchPropertiesCachingResult(PropertySearch currentSearch,
@@ -48,27 +53,43 @@ public class PropertyService {
         return lastSearch;
     }
 
+    public void cancelSearch() {
+        interruptSearch = true;
+    }
+
     protected void searchProperties(final PropertySearch currentSearch, final boolean cacheResults,
-                                              AccessToken accessToken, final PropertyServiceListener listener) {
-        JSONArray propertiesJsonArray = getCachedSearch(currentSearch);
-        if(propertiesJsonArray.length() == 0) {
-            this.propertyRepo.searchProperties(currentSearch, accessToken,
-                    new PropertyRepoListener<JSONArray>() {
-                        @Override
-                        public void onDataLoaded(JSONArray data) {
-                            createPropertyListFromSearchResult(currentSearch, data, cacheResults, listener);
-                        }
-                    });
-        }
-        else {
-            createPropertyListFromSearchResult(currentSearch, propertiesJsonArray, cacheResults, listener);
-        }
+                                    final AccessToken accessToken, final PropertyServiceListener listener) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                interruptSearch = false;
+                try {
+                    Thread.sleep(3000);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                JSONArray propertiesJsonArray = getCachedSearch(currentSearch);
+                if(propertiesJsonArray.length() == 0) {
+                    propertyRepo.searchProperties(currentSearch, accessToken,
+                            new PropertyRepoListener<JSONArray>() {
+                                @Override
+                                public void onDataLoaded(JSONArray data) {
+                                    if(!interruptSearch) {
+                                        createPropertyListFromSearchResult(currentSearch, data, cacheResults, listener);
+                                    }
+                                }
+                            });
+                } else {
+                    createPropertyListFromSearchResult(currentSearch, propertiesJsonArray, cacheResults, listener);
+                }
+            }
+        }).start();
     }
 
     protected void createPropertyListFromSearchResult(PropertySearch currentSearch,
                                                       JSONArray propertiesJsonArray,
                                                       boolean cacheResults,
-                                                      PropertyServiceListener propertyServiceListener) {
+                                                      final PropertyServiceListener propertyServiceListener) {
 
         final boolean includeRent = currentSearch.isRent();
         final boolean includeSell = currentSearch.isSell();
@@ -80,12 +101,21 @@ public class PropertyService {
             cacheResults(currentSearch, propertiesJsonArray, totalRent, totalSell);
         }
 
-        List<Property> resultList = parseResults.getPropertyList();
+        final List<Property> resultList = parseResults.getPropertyList();
         sortProperties(resultList, currentSearch.getSortCriteria());
         currentSearch.setResults(resultList);
         lastSearch = currentSearch;
 
-        propertyServiceListener.onDataLoaded(resultList);
+        if(!interruptSearch)
+        {
+            Handler handler = new Handler(Looper.getMainLooper());
+            handler.post(new Runnable() {
+                @Override
+                public void run() {
+                    propertyServiceListener.onDataLoaded(resultList);
+                }
+            });
+        }
     }
 
     protected JsonParseResults parseFromJson(JSONArray jsonArray, boolean includeRent, boolean includeSell) {

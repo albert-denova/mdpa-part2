@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.lasalle.second.part.propertycross.MainActivity"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -81,7 +81,7 @@
                     <LinearLayout
                         android:orientation="horizontal"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="75dp"
                         android:id="@+id/searchInputLayout">
 
                         <ImageView
@@ -100,7 +100,34 @@
                             android:layout_weight="1"
                             android:hint="@string/location_hint"
                             android:imeOptions="actionSearch"
-                            android:singleLine="true" />
+                            android:singleLine="true"
+                            android:layout_gravity="center_vertical" />
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/floatingCancelLayout"
+                            android:visibility="gone">
+
+                            <android.support.design.widget.FloatingActionButton
+                                android:id="@+id/cancelSearchActionButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:src="@drawable/ic_clear_24dp"
+                                app:elevation="4dp" />
+
+                            <ProgressBar
+                                android:id="@+id/view_progress"
+                                style="?android:attr/progressBarStyleLarge"
+                                android:layout_width="76dp"
+                                android:layout_height="76dp"
+                                android:indeterminate="true"
+                                android:indeterminateTintMode="src_in"
+                                android:indeterminateTint="@color/colorPrimary"
+                                android:layout_centerInParent="true" />
+                        </RelativeLayout>
+
                     </LinearLayout>
 
                     <LinearLayout
