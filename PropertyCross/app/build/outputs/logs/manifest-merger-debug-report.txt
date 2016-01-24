@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/src/main/AndroidManifest.xml:2:1-20:12
+ADDED from /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/src/main/AndroidManifest.xml:2:1-25:12
 	package
 		ADDED from /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/src/main/AndroidManifest.xml:3:5-52
 		INJECTED from /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/src/main/AndroidManifest.xml
@@ -14,7 +14,7 @@ ADDED from /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyC
 		INJECTED from /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/src/main/AndroidManifest.xml
 application
-ADDED from /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/src/main/AndroidManifest.xml:5:5-18:19
+ADDED from /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/src/main/AndroidManifest.xml:5:5-23:19
 MERGED from [com.android.support:appcompat-v7:23.1.1] /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-v4:23.1.1] /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:design:23.1.1] /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/exploded-aar/com.android.support/design/23.1.1/AndroidManifest.xml:22:5-20
@@ -22,7 +22,7 @@ MERGED from [com.android.support:appcompat-v7:23.1.1] /Users/albert.denova/pers/
 MERGED from [com.android.support:support-v4:23.1.1] /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-v4:23.1.1] /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-v4:23.1.1] /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/AndroidManifest.xml:22:5-20
-MERGED from [PropertyCross:week1:unspecified] /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/exploded-aar/PropertyCross/week1/unspecified/AndroidManifest.xml:13:5-22:19
+MERGED from [PropertyCross:week1:unspecified] /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/exploded-aar/PropertyCross/week1/unspecified/AndroidManifest.xml:13:5-31:19
 MERGED from [com.android.support:appcompat-v7:23.1.1] /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-v4:23.1.1] /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-v4:23.1.1] /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/AndroidManifest.xml:22:5-20
@@ -46,22 +46,29 @@ MERGED from [PropertyCross:volley:unspecified] /Users/albert.denova/pers/lasalle
 		ADDED from /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/src/main/AndroidManifest.xml:10:9-40
 	android:name
 		ADDED from [PropertyCross:week1:unspecified] /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/exploded-aar/PropertyCross/week1/unspecified/AndroidManifest.xml:14:9-78
+meta-data#com.facebook.sdk.ApplicationId
+ADDED from /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/src/main/AndroidManifest.xml:12:9-107
+MERGED from [PropertyCross:week1:unspecified] /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/exploded-aar/PropertyCross/week1/unspecified/AndroidManifest.xml:19:9-21:55
+	android:value
+		ADDED from /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/src/main/AndroidManifest.xml:12:66-105
+	android:name
+		ADDED from /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/src/main/AndroidManifest.xml:12:20-65
 activity#com.lasalle.second.part.propertycross.MainActivity
-ADDED from /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/src/main/AndroidManifest.xml:11:9-17:20
+ADDED from /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/src/main/AndroidManifest.xml:14:9-20:20
 	android:parentActivityName
-		ADDED from /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/src/main/AndroidManifest.xml:11:48-130
+		ADDED from /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/src/main/AndroidManifest.xml:14:48-130
 	android:name
-		ADDED from /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/src/main/AndroidManifest.xml:11:19-47
+		ADDED from /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/src/main/AndroidManifest.xml:14:19-47
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/src/main/AndroidManifest.xml:12:13-16:29
+ADDED from /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/src/main/AndroidManifest.xml:15:13-19:29
 action#android.intent.action.MAIN
-ADDED from /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/src/main/AndroidManifest.xml:13:17-69
+ADDED from /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/src/main/AndroidManifest.xml:16:17-69
 	android:name
-		ADDED from /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/src/main/AndroidManifest.xml:13:25-66
+		ADDED from /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/src/main/AndroidManifest.xml:16:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/src/main/AndroidManifest.xml:15:17-77
+ADDED from /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/src/main/AndroidManifest.xml:18:17-77
 	android:name
-		ADDED from /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/src/main/AndroidManifest.xml:15:27-74
+		ADDED from /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/src/main/AndroidManifest.xml:18:27-74
 uses-sdk
 INJECTED from /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:appcompat-v7:23.1.1] /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/AndroidManifest.xml:20:5-43
@@ -96,14 +103,24 @@ ADDED from [PropertyCross:week1:unspecified] /Users/albert.denova/pers/lasalle/M
 	android:name
 		ADDED from [PropertyCross:week1:unspecified] /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/exploded-aar/PropertyCross/week1/unspecified/AndroidManifest.xml:11:22-64
 activity#com.lasalle.second.part.week1.activities.MainActivity
-ADDED from [PropertyCross:week1:unspecified] /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/exploded-aar/PropertyCross/week1/unspecified/AndroidManifest.xml:19:9-90
+ADDED from [PropertyCross:week1:unspecified] /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/exploded-aar/PropertyCross/week1/unspecified/AndroidManifest.xml:23:9-90
 	android:name
-		ADDED from [PropertyCross:week1:unspecified] /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/exploded-aar/PropertyCross/week1/unspecified/AndroidManifest.xml:19:19-87
+		ADDED from [PropertyCross:week1:unspecified] /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/exploded-aar/PropertyCross/week1/unspecified/AndroidManifest.xml:23:19-87
 activity#com.lasalle.second.part.week1.activities.ResultsContainerActivity
-ADDED from [PropertyCross:week1:unspecified] /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/exploded-aar/PropertyCross/week1/unspecified/AndroidManifest.xml:20:9-102
+ADDED from [PropertyCross:week1:unspecified] /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/exploded-aar/PropertyCross/week1/unspecified/AndroidManifest.xml:24:9-102
 	android:name
-		ADDED from [PropertyCross:week1:unspecified] /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/exploded-aar/PropertyCross/week1/unspecified/AndroidManifest.xml:20:19-99
+		ADDED from [PropertyCross:week1:unspecified] /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/exploded-aar/PropertyCross/week1/unspecified/AndroidManifest.xml:24:19-99
 activity#com.lasalle.second.part.week1.activities.UserLoginActivity
-ADDED from [PropertyCross:week1:unspecified] /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/exploded-aar/PropertyCross/week1/unspecified/AndroidManifest.xml:21:9-95
+ADDED from [PropertyCross:week1:unspecified] /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/exploded-aar/PropertyCross/week1/unspecified/AndroidManifest.xml:25:9-95
 	android:name
-		ADDED from [PropertyCross:week1:unspecified] /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/exploded-aar/PropertyCross/week1/unspecified/AndroidManifest.xml:21:19-92
+		ADDED from [PropertyCross:week1:unspecified] /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/exploded-aar/PropertyCross/week1/unspecified/AndroidManifest.xml:25:19-92
+activity#com.facebook.FacebookActivity
+ADDED from [PropertyCross:week1:unspecified] /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/exploded-aar/PropertyCross/week1/unspecified/AndroidManifest.xml:26:9-30:75
+	android:label
+		ADDED from [PropertyCross:week1:unspecified] /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/exploded-aar/PropertyCross/week1/unspecified/AndroidManifest.xml:29:13-45
+	android:configChanges
+		ADDED from [PropertyCross:week1:unspecified] /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/exploded-aar/PropertyCross/week1/unspecified/AndroidManifest.xml:28:13-96
+	android:theme
+		ADDED from [PropertyCross:week1:unspecified] /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/exploded-aar/PropertyCross/week1/unspecified/AndroidManifest.xml:30:13-72
+	android:name
+		ADDED from [PropertyCross:week1:unspecified] /Users/albert.denova/pers/lasalle/MDPA-2015Q1/Part-2/source/PropertyCross/app/build/intermediates/exploded-aar/PropertyCross/week1/unspecified/AndroidManifest.xml:27:13-57

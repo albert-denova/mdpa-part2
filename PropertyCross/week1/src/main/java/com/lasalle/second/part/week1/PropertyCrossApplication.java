@@ -3,6 +3,7 @@ package com.lasalle.second.part.week1;
 import android.app.Application;
 import android.content.Context;
 
+import com.facebook.FacebookSdk;
 import com.lasalle.second.part.week1.services.ApplicationServiceFactory;
 import com.lasalle.second.part.week1.util.VolleyRequestHandler;
 
@@ -18,6 +19,7 @@ public class PropertyCrossApplication extends Application {
         super.onCreate();
         context = this;
 
+        FacebookSdk.sdkInitialize(getApplicationContext());
         VolleyRequestHandler.getInstance();
         ApplicationServiceFactory.getInstance().getAuthService().requestAccessToken();
     }

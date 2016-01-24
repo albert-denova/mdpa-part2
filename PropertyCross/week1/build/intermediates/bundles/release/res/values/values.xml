@@ -13,6 +13,7 @@
     <dimen name="result_item_shadow_bottom_size">2dp</dimen>
     <dimen name="result_item_shadow_right_size">2dp</dimen>
     <string name="app_name">PropertyCross-Week1</string>
+    <string name="facebook_app_id">955539494525977</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="location_hint">City/Postal Code/Address</string>
     <string name="location_icon">Search using my current location</string>
