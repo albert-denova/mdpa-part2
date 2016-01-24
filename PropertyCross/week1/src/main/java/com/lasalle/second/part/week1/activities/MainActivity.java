@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements TextView.OnEditor
     public boolean onEditorAction(TextView editText, int actionId, KeyEvent event) {
         boolean handled = false;
 
-        final boolean isEnterKey = (event.getKeyCode() == KeyEvent.KEYCODE_ENTER) &&
+        final boolean isEnterKey = (event != null) && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER) &&
                 (event.getAction() == KeyEvent.ACTION_DOWN);
 
         if (actionId == EditorInfo.IME_ACTION_SEARCH || isEnterKey) {
